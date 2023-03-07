@@ -1,10 +1,19 @@
 <div class="container p-4">
 <h1>My Profile</h1>
-<p>Name: <%= @user.first_name %></p>
-<p>Surname: <%= @user.last_name %></p>
+<div class="avatar">
+  <% if @user.photo.key.present? %>
+    <%= cl_image_tag @user.photo.key,  class: "avatar" %>
+  <% else %>
+    <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1678218821/avatar_laundromate.png" alt="default image">
+  <% end %>
+</div>
 <p>Nickname: <%= @user.nickname %></p>
+<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
 <p>Address: <%= @user.address %></p>
 
+
+
+      <br>
 
 <%# THIS BUTTON IS JUST A TRIAL %>
 <button class="c-button c-button--gooey"> Hover me
