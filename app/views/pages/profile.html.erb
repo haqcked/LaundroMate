@@ -1,0 +1,36 @@
+<div class="container p-4">
+<h1>My Profile</h1>
+<div class="avatar">
+  <% if @user.photo.key.present? %>
+    <%= cl_image_tag @user.photo.key,  class: "avatar" %>
+  <% else %>
+    <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1678218821/avatar_laundromate.png" alt="default image">
+  <% end %>
+</div>
+<p>Nickname: <%= @user.nickname %></p>
+<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+<p>Address: <%= @user.address %></p>
+
+
+
+      <br>
+
+<%# THIS BUTTON IS JUST A TRIAL %>
+<button class="c-button c-button--gooey"> Hover me
+  <div class="c-button__blobs">
+  <div></div>
+  <div></div>
+  <div></div>
+  </div>
+</button>
+<svg style="display: block; height: 0; width: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur result="blur" stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
+      <feColorMatrix result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" mode="matrix" in="blur"></feColorMatrix>
+      <feBlend in2="goo" in="SourceGraphic"></feBlend>
+    </filter>
+  </defs>
+</svg>
+
+</div>
