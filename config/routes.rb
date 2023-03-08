@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/profile", to: "pages#profile"
 
   resources :services, only: [:index] do
-    resources :bookings, only: [:new, :create, :edit, :update, :destroy]
+    resources :bookings, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   resources :bookings, only: [:show, :index] do

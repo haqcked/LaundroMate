@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
+    @services = Service.all
   end
 
   def edit
