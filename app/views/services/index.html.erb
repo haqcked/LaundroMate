@@ -1,0 +1,41 @@
+
+<div class="container justify-content-center p-4">
+  <h3>A list of our services</h3>
+
+  <%= form_for @user do |f| %>
+  <%= f.collection_check_boxes(
+    :options, [[true, 'Yes'] ,[false, 'No']], :first, :last
+  ) do |b|
+    b.label { b.check_box + b.text }
+  end
+end
+
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2>Product name</h2>
+      <p>Product description with <strong>relevant info</strong> only.</p>
+    </div>
+  </div>
+
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <div>
+        <h2>Product name</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+      <div btn btn-danger>
+        <%= link_to "Select", bookings_path, class: "btn btn-danger text-white" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2>Product name</h2>
+      <p>Product description with <strong>relevant info</strong> only.</p>
+    </div>
+  </div>
+</div>
