@@ -4,19 +4,12 @@
 
 
 
+<%= form_tag bookings_path, method: :post do %>
   <% @services.each do |service| %>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <div>
-          <h4> <%= service.name %> </h4>
-          <p> <%= service.description %></p>
-        </div>
-        <div>
-          <%= link_to "submit", bookings_path, class: 'btn btn-primary text-decoration-none'%>
-        </div>
-      </div>
-    </div>
+    <%= check_box_tag 'selected_services[]', service.id %>
+    <%= label_tag "service_#{service.id}", service.name %><br>
   <% end %>
+  <%= submit_tag "Submit" %>
+<% end %>
 
 </div>
