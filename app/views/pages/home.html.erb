@@ -1,2 +1,27 @@
-<h1>LaundroMate</h1>
-<p>Don't Mind Your Laundry!</p>
+<%= content_for(:navbar_class, "navbar-home") %>
+
+<div class="banner">
+  <div class="banner-content text-center">
+    <h1>Spend your precious time with your family.</h1>
+    <p>Let Laundromate take the load off your laundry day!</p>
+
+    <%= link_to services_path do %>
+      <button class="c-button c-button--gooey"> Book now!
+        <div class="c-button__blobs">
+        <div></div>
+        <div></div>
+        <div></div>
+        </div>
+      </button>
+    <% end %>
+    <svg style="display: block; height: 0; width: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur result="blur" stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
+          <feColorMatrix result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" mode="matrix" in="blur"></feColorMatrix>
+          <feBlend in2="goo" in="SourceGraphic"></feBlend>
+        </filter>
+      </defs>
+    </svg>
+  </div>
+</div>
