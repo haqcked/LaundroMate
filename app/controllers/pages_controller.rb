@@ -30,6 +30,9 @@ class PagesController < ApplicationController
 
   end
 
+  def payment_page
+  end
+
   private
 
   def user_params

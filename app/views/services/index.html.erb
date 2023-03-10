@@ -5,8 +5,12 @@
 
 
 
+<%= form_tag bookings_path, method: :post do %>
+  <% @services.each do |service| %>
+    <%= check_box_tag 'selected_services[]', service.id %>
+    <%= label_tag "service_#{service.id}", service.name %><br>
+  <% end %>
+  <%= submit_tag "Submit" %>
+<% end %>
 
 </div>
-
-
-<hr>
