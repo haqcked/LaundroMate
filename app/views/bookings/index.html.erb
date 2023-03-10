@@ -1,0 +1,12 @@
+<h2>All Orders</h2>
+
+<% @bookings.each do |booking| %>
+  <p>Name: <%= booking.user.nickname %></p>
+  <p>Email: <%= booking.user.email %></p>
+  <p>Line Items: </p>
+  <ul>
+    <% booking.line_items.each do |item| %>
+    <li><%= item.service.name %></li>
+    <% end %>
+  </ul>
+<% end %>

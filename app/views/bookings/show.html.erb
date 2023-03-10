@@ -1,1 +1,21 @@
 <h1>Your Booking Summary</h1>
+
+<%= form_for(@booking) do |f| %>
+  <p>
+    <%= #f.label :name %><br>
+    <%= #f.text_field :name, required: true, autofocus: true %>
+  </p>
+  <p>
+    <%= #f.label :email %><br>
+    <%= #f.email_field :email %>
+  </p>
+  <p>
+    <%= #f.label :address %><br>
+    <%= #f.text_area :address %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end
+
+# add pickup and delivery date
