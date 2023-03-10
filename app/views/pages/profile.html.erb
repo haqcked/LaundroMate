@@ -8,7 +8,7 @@
           <% if @user.photo.key.present? %>
             <%= cl_image_tag @user.photo.key,  class: "img-fluid rounded-start" %>
           <% else %>
-            <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1678218821/avatar_laundromate.png" alt="default image">
+            <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1678463694/avatar-asset.png", class="img-fluid rounded-start", alt="default image">
           <% end %>
         </div>
         <div class="col-md-8">
@@ -32,4 +32,3 @@
   </div>
 
 </div>
-

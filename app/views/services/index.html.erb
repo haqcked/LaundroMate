@@ -4,6 +4,7 @@
 
 
 
+
 <%= form_tag bookings_path, method: :post do %>
   <% @services.each do |service| %>
     <%= check_box_tag 'selected_services[]', service.id %>
