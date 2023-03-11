@@ -14,20 +14,21 @@ class BookingsController < ApplicationController
 
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
     @current_cart.line_items.each do |item|
       @booking.line_items << item
       item.cart_id = nil
     end
-    @booking.save
+    @booking.save!
     Cart.destroy(session[:cart_id])
     session[:cart_id] = nil
-    redirect_to services_path
+    redirect_to booking_path
   end
 
-  # private
-  # def booking_params
-  #   params.require(:booking).permit(:service_id)
-  # end
+  private
+  def booking_params
+    params.require(:booking).permit(:delivery_date, :pickup_date, :price)
+  end
 
 end

@@ -6,11 +6,10 @@
 
   <% @services.each do |service| %>
     <%= service.name %><br>
+    <%= service.description %><br>
+    <%= service.price %>
     <%= button_to "Add #{service.name} to cart", line_items_path(:service_id => service.id)%>
   <% end %>
-  <div class="form-group">
-    <%= f.label :pickup_date %>
-    <%= f.date_field :pickup_date, class: "form-control", required: true %>
-  </div>
+
 
 </div>
