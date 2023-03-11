@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts "cleaning database for services"
+puts "cleaning database for services and chatroom"
 Service.destroy_all
 Chatroom.destroy_all
 
@@ -20,7 +20,7 @@ puts "creating service 3"
 Service.create!(name: "Up to 10 kg", description: lorem, price: 40)
 puts "creating service 4"
 Service.create!(name: "Up to 12 kg", description: lorem, price: 50)
-puts "creating chatroom"
+puts "creating laundromate chatroom"
 Chatroom.create!(name: "laundromate", id: "1")
 puts "done creating services and chatroom"
 
