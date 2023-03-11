@@ -1,6 +1,5 @@
 class Booking < ApplicationRecord
   belongs_to :user
-  belongs_to :service
   has_many :reviews
   has_many :line_items, dependent: :destroy
 

@@ -21,10 +21,9 @@ class LineItemsController < ApplicationController
       @line_item = LineItem.new
       @line_item.cart = current_cart
       @line_item.service = chosen_service
+      @line_item.save
     end
-
     # Save and redirect to cart show path
-    @line_item.save
     redirect_to cart_path(current_cart)
   end
 
@@ -32,10 +31,10 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     redirect_to cart_path(@current_cart)
-  end  
+  end
 
   private
   def line_item_params
-    params.require(:line_item).permit(:quantity,:service_id, :cart_id)
+    params.require(:line_item).permit(:quantity, :service_id, :cart_id)
   end
 end
