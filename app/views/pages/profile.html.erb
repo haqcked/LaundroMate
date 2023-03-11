@@ -1,10 +1,10 @@
 <div class="container p-4">
   <h1>My Profile</h1>
   <hr>
-
+  <div class="container">
     <div class="card-profile" style="max-width: 540px;">
       <div class="row g-0">
-        <div class="col-md-4 mx-auto">
+        <div class="col-md-4 p-4">
           <% if @user.photo.key.present? %>
             <%= cl_image_tag @user.photo.key,  class: "img-fluid rounded-start" %>
           <% else %>
@@ -22,13 +22,12 @@
       </div>
     </div>
 
-  <div class="container">
-
-    <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary"%>
-
-    <%= link_to "Delete Account",
-      registration_path(@user), class: "btn btn-danger",
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <div class="container p-4">
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary"%>
+      <%= link_to "Delete Account",
+        registration_path(@user), class: "btn btn-danger",
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
   </div>
 
 </div>
