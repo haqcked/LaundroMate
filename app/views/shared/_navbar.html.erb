@@ -21,7 +21,7 @@
             <%= link_to "Services", services_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Chatroom", "#", class: "nav-link" %>
+            <%= link_to "Chatroom", "chatrooms/1", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <% if @user&.photo&.key.present? %>
