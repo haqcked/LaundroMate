@@ -1,5 +1,6 @@
 <div class="container chatroom">
-  <h1>#<%= @chatroom.name %></h1>
+  <h1><%= @chatroom.name.capitalize %> Chatroom -</h1>
+  <h2>The Laundromate Team will address your concerns as soon as possible.</h2>
 
   <div class="messages">
     <% @chatroom.messages.each do |message| %>
