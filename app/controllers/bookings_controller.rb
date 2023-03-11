@@ -16,14 +16,18 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @current_cart.line_items.each do |item|
-      @booking.line_items << item
-      item.cart_id = nil
+    if @booking.save!
+      @current_cart.line_items.each do |item|
+        item.booking = @booking
+        item.cart_id = nil
+        item.save!
+      end
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+      redirect_to booking_path(@booking)
+    else
+      render :new
     end
-    @booking.save!
-    Cart.destroy(session[:cart_id])
-    session[:cart_id] = nil
-    redirect_to booking_path
   end
 
   private
