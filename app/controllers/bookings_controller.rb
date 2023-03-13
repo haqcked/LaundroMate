@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user_id: current_user.id).all
   end
 
   def show
@@ -11,7 +11,6 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
-
 
   def create
     @booking = Booking.new(booking_params)
@@ -24,15 +23,15 @@ class BookingsController < ApplicationController
       end
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path(@booking)
     else
       render :new
     end
   end
 
   private
+
   def booking_params
     params.require(:booking).permit(:delivery_date, :pickup_date, :price)
   end
-
 end

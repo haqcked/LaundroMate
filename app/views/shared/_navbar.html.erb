@@ -21,6 +21,12 @@
             <%= link_to "Services", services_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
+            <%= link_to "My Cart", carts_show_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "Chatroom", "chatrooms/1", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
@@ -28,8 +34,6 @@
               <%= cl_image_tag @user.photo.key, :aspect_ratio=>"1:1", :gravity=>"auto", :radius=>"max", :width=>1000, :crop=>"fill", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= cl_image_tag("https://res.cloudinary.com/dzh4zrfev/image/upload/v1678463694/avatar-asset.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-
-              <%# <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1678218821/avatar_laundromate.png", class="avatar" alt="default image"> %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
