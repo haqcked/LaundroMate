@@ -25,14 +25,14 @@ class BookingsController < ApplicationController
       end
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      redirect_to bookings_path(@booking)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
   end
 
   def destroy
-    raise
+    # raise
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path, status: :see_other
