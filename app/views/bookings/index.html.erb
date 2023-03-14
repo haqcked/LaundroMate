@@ -2,7 +2,7 @@
   <h2>My Bookings (index)</h2>
 
   <% @bookings.each do |booking| %>
-    <p>Name: <%= booking.user.nickname %></p>
+    <h4>Customer: <%= booking.user.nickname %></h4>
     <p>Pickup date: <%= booking.pickup_date %></p>
     <p>Delivery date: <%= booking.delivery_date %></p>
     <p>Services: </p>
@@ -11,9 +11,10 @@
       <li><%= item.service.name %> - $<%= item.service.price %> </li>
       <% end %>
     </ul>
+    <h3>Total cost: <%= booking.total_price %></h3>
     <p>Status: <%= booking.status %></p>
 
-    <%= link_to "Cancel", bookings_path(booking), class: "btn btn-danger",
+    <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger",
         data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
 
   <hr>

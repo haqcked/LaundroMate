@@ -15,14 +15,16 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.total_price = 0
     if @booking.save!
       @current_cart.line_items.each do |item|
         item.booking = @booking
-        # item.service.price = @booking.total_price
+        @booking.total_price += item.service.price
+        # raise
         item.cart_id = nil
         item.save!
-        raise
       end
+      @booking.save!
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       redirect_to bookings_path(@booking)
@@ -32,7 +34,6 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    raise
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path, status: :see_other
