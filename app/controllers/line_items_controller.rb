@@ -5,6 +5,9 @@ class LineItemsController < ApplicationController
     chosen_service = Service.find(params[:service_id])
     current_cart = @current_cart
 
+  def show
+  end
+
     # If cart already has this product then find the relevant line_item and iterate quantity otherwise create a new line_item for this product
     # if current_cart.services.include?(chosen_service)
     #   # Find the line_item with the chosen_product
