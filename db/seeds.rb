@@ -8,7 +8,6 @@
 
 puts "cleaning database for services and chatroom"
 Service.destroy_all
-Chatroom.destroy_all
 
 lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
 
@@ -20,8 +19,17 @@ puts "creating service 3"
 Service.create!(name: "Up to 10 kg", description: lorem, price: 40)
 puts "creating service 4"
 Service.create!(name: "Up to 12 kg", description: lorem, price: 50)
+
+puts "=========================================="
+
+puts "claening Message database"
+Message.destroy_all
+
+puts "claening Chatroom database"
+Chatroom.destroy_all
+
 puts "creating laundromate chatroom"
 Chatroom.create!(name: "laundromate", id: "1")
-puts "done creating services and chatroom"
-
 puts "========================================="
+
+puts "done creating services and chatroom"
