@@ -43,13 +43,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_182955) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.datetime "pickup_date"
-    t.datetime "delivery_date"
+    t.date "pickup_date"
+    t.time "pickup_time"
+    t.date "delivery_date"
+    t.time "delivery_time"
     t.integer "total_price"
     t.integer "status", default: 0, null: false
     t.bigint "user_id", null: false
+    t.bigint "service_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_bookings_on_service_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -67,8 +71,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_182955) do
   create_table "line_items", force: :cascade do |t|
     t.integer "quantity", default: 1
     t.bigint "service_id", null: false
-    t.bigint "cart_id"
-    t.bigint "booking_id"
+    t.bigint "cart_id", null: false
+    t.bigint "booking_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_line_items_on_booking_id"
@@ -77,9 +81,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_182955) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string "content"
-    t.bigint "chatroom_id", null: false
+    t.text "content"
     t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
@@ -125,6 +129,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_182955) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "services"
   add_foreign_key "bookings", "users"
   add_foreign_key "line_items", "bookings"
   add_foreign_key "line_items", "carts"
