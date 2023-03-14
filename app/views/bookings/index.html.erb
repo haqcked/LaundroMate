@@ -11,6 +11,7 @@
       <li><%= item.service.name %> - $<%= item.service.price %> </li>
       <% end %>
     </ul>
+    <h3>Total cost: <%= booking.total_price %></h3>
     <p>Status: <%= booking.status %></p>
 
     <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger",

@@ -7,7 +7,7 @@
           Price: <%= number_to_currency(line_item.service.price) %> <br>
           Quantity: <%= line_item.quantity %> <br>
           Total Price: <%= number_to_currency(line_item.total_price) %> <br>
-          <%= link_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
+          <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
     <% end %>
   </ul>
     <br>
