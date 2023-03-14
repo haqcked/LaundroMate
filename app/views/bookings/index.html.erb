@@ -1,22 +1,31 @@
 <div class="container p-4">
   <h2>My Bookings (index)</h2>
 
-  <% @bookings.each do |booking| %>
-    <h4>Customer: <%= booking.user.nickname %></h4>
-    <p>Pickup date: <%= booking.pickup_date %></p>
-    <p>Delivery date: <%= booking.delivery_date %></p>
-    <p>Services: </p>
-    <ul>
-      <% booking.line_items.each do |item| %>
-      <li><%= item.service.name %> - $<%= item.service.price %> </li>
-      <% end %>
-    </ul>
-    <h3>Total cost: <%= booking.total_price %></h3>
-    <p>Status: <%= booking.status %></p>
+  <div class="row justify-content-center">
+    <div class="card col-3">
+      <% @bookings.each do |booking| %>
+        <h4>Customer: <%= booking.user.nickname %></h4>
+        <p>Pickup date: <%= booking.pickup_date %></p>
+        <p>Delivery date: <%= booking.delivery_date %></p>
+        <p>Services: </p>
+        <ul>
+          <% booking.line_items.each do |item| %>
+            <li><%= item.service.name %> - $<%= item.service.price %> </li>
+          <% end %>
+        </ul>
+        <h3>Total cost: <%= booking.total_price %></h3>
+        <p>Status: <%= booking.status %></p>
 
-    <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger",
-        data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
+        <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger",
+            data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
 
-  <hr>
-  <% end %>
+        <hr>
+        <% end %>
+    </div>
+    <div>
+      <h3>Grand total: <%= @bookings.sum(&:total_price) %></h3>
+    </div>
+  </div>
+
+
 </div>
