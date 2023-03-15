@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_03_15_082529) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,17 +44,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_082529) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.date "pickup_date"
-    t.time "pickup_time"
-    t.date "delivery_date"
-    t.time "delivery_time"
+    t.datetime "pickup_date"
+    t.datetime "delivery_date"
     t.integer "total_price"
     t.integer "status", default: 0, null: false
     t.bigint "user_id", null: false
-    t.bigint "service_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["service_id"], name: "index_bookings_on_service_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -72,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_082529) do
     t.integer "quantity", default: 1
     t.bigint "service_id", null: false
     t.bigint "cart_id", null: false
-    t.bigint "booking_id", null: false
+    t.bigint "booking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_line_items_on_booking_id"
@@ -81,9 +78,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_082529) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text "content"
-    t.bigint "user_id", null: false
+    t.string "content"
     t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
@@ -138,7 +135,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_082529) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookings", "services"
   add_foreign_key "bookings", "users"
   add_foreign_key "line_items", "bookings"
   add_foreign_key "line_items", "carts"

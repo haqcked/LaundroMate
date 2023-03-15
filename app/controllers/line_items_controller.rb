@@ -5,6 +5,10 @@ class LineItemsController < ApplicationController
     chosen_service = Service.find(params[:service_id])
     current_cart = @current_cart
 
+  def show
+    @line_item = LineItem.find(params[:id])
+  end
+
     # If cart already has this product then find the relevant line_item and iterate quantity otherwise create a new line_item for this product
     # if current_cart.services.include?(chosen_service)
     #   # Find the line_item with the chosen_product
@@ -21,21 +25,21 @@ class LineItemsController < ApplicationController
       @line_item = LineItem.new
       @line_item.cart = current_cart
       @line_item.service = chosen_service
+      @line_item.save
     end
-
     # Save and redirect to cart show path
-    @line_item.save
     redirect_to cart_path(current_cart)
   end
 
   def destroy
+    # raise
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     redirect_to cart_path(@current_cart)
-  end  
+  end
 
   private
   def line_item_params
-    params.require(:line_item).permit(:quantity,:service_id, :cart_id)
+    params.require(:line_item).permit(:quantity, :service_id, :cart_id)
   end
 end
