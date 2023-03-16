@@ -26,6 +26,9 @@
           <li class="nav-item">
             <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Chat With Us", chatroom_path, class: "nav-link" %>
+          </li>
 
           <li class="nav-item dropdown">
             <% if @user&.photo&.key.present? %>
@@ -34,7 +37,9 @@
               <%= cl_image_tag("https://res.cloudinary.com/dzh4zrfev/image/upload/v1678463694/avatar-asset.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
+            <% if @user&.admin %>
+              <%= link_to "All Chats", chatrooms_path, class: "dropdown-item" %>
+            <% end %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
