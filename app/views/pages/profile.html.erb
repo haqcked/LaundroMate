@@ -31,11 +31,3 @@
   </div>
 
 </div>
-
-<%= form_with(model: @chatroom, url: user_chatrooms_path(@user), local: true) do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <%= form.submit "Create Chatroom" %>
-<% end %>
