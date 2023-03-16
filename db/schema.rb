@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema[7.0].define(version: 2023_03_04_101440) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_03_16_175414) do
+>>>>>>> Stashed changes
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +39,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_101440) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< Updated upstream
+=======
+  create_table "line_items", force: :cascade do |t|
+    t.integer "quantity", default: 1
+    t.bigint "service_id", null: false
+    t.bigint "cart_id"
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_line_items_on_booking_id"
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["service_id"], name: "index_line_items_on_service_id"
+  end
+
+>>>>>>> Stashed changes
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
@@ -60,6 +79,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_101440) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< Updated upstream
+=======
+    t.integer "price"
+>>>>>>> Stashed changes
   end
 
   create_table "users", force: :cascade do |t|
