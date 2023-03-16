@@ -1,15 +1,60 @@
-
-<div class="container justify-content-center p-4">
+<div class="container p-4">
   <h3>A list of our services</h3>
 
+  <div class="container p-4">
 
+    <div class="card p-4 rounded-4 mb-4">
+      <div class="row">
+        <h3>Wash, Dry & Fold</h3>
+        <% @services.where(category: "Wash, Dry and Fold").each do |service| %>
+          <div class="col-12 col-sm-3 d-flex">
+            <div class="flex-grow-1">
+              <div class="card p-4 rounded-4">
+                <p>Service: <%= service.category %></p><br>
+                <p>Weight: <%= service.name %></p><br>
+                <p>Price: $<%= service.price %></p><br>
 
-  <% @services.each do |service| %>
-    <%= service.name %><br>
-    <%= service.description %><br>
-    <%= service.price %>
-    <%= button_to "Add #{service.name} to cart", line_items_path(:service_id => service.id)%>
-  <% end %>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                  <p><%= service.name %></p><br>
+                  </label>
+                </div>
 
+                <%= button_to "Add", line_items_path(:service_id => service.id), class: "btn btn-primary"%>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
+    <div class="card p-4 rounded-4 mb-4">
+      <div class="row">
+        <h3>Wash, Dry & Iron</h3>
+        <% @services.where(category: "Wash, Dry and Iron").each do |service| %>
+          <div class="col-12 col-sm-3 d-flex">
+            <div class="flex-grow-1">
+              <div class="card p-4 rounded-4">
+                <p>Service: <%= service.category %></p><br>
+                <p>Weight: <%= service.name %></p><br>
+                <p>Price: $<%= service.price %></p><br>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                  <p><%= service.name %></p><br>
+                  </label>
+                </div>
+
+                <%= button_to "Add", line_items_path(:service_id => service.id), class: "btn btn-primary"%>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+    <%= render partial: 'shared/offcanvas' %>
 </div>
