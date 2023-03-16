@@ -22,14 +22,24 @@ Service.create!(name: "Up to 12 kg", description: lorem, price: 50)
 
 puts "=========================================="
 
-puts "claening Message database"
+puts "cleaning Admin database"
+User.where(admin: true).destroy_all
+
+User.create!(
+  first_name: "admin",
+  last_name: "admin",
+  nickname: "admin",
+  email: "admin@admin.com",
+  address: "Brussels",
+  password: "123456",
+  admin: true,
+)
+
+puts "cleaning Message database"
 Message.destroy_all
 
-puts "claening Chatroom database"
-Chatroom.destroy_all
+# puts "creating laundromate chatroom"
+# Chatroom.create!(name: "laundromate")
+# puts "========================================="
 
-puts "creating laundromate chatroom"
-Chatroom.create!(name: "laundromate", id: "1")
-puts "========================================="
-
-puts "done creating services and chatroom"
+puts "done creating admin and services"

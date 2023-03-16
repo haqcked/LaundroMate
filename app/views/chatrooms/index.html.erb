@@ -1,0 +1,11 @@
+
+<div class="container justify-content-center p-4">
+  <h3>List of Chats</h3>
+
+  <% @chatrooms.each do |chatroom| %>
+    <%= chatroom.name %><br>
+    <%= chatroom.user.nickname %><br>
+    <%= link_to "Chat", chatrooms_path(chatroom), class: "nav-link" %>
+  <% end %>
+
+</div>

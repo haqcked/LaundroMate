@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @message.chatroom = @chatroom
     @message.user = current_user
     if @message.save
-      redirect_to chatroom_path(@chatroom)
+      redirect_to "/chatrooms/#{@chatroom.id}"
     else
       render "chatrooms/show", status: :unprocessable_entity
     end
