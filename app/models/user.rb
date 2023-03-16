@@ -5,8 +5,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
   has_many :messages, dependent: :destroy
-  has_many :user_chatrooms
-  has_many :chatroom, through: :user_chatrooms
+  has_one :chatroom
 
   has_one_attached :photo
 
