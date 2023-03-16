@@ -1,0 +1,22 @@
+<div class="container p-4">
+  <h2>Cart show</h2>
+
+  <ul>
+    <% @cart.line_items.each do |line_item| %>
+      <li>Item: <%= line_item.service.name %> <br>
+          Price: <%= number_to_currency(line_item.service.price) %> <br>
+          Quantity: <%= line_item.quantity %> <br>
+          Total Price: <%= number_to_currency(line_item.total_price) %> <br>
+          <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
+    <% end %>
+  </ul>
+    <br>
+    <%= link_to "Add another service", services_path, class: "btn btn-primary" %>
+
+  <hr>
+
+  <h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3>
+  <%= link_to "Pick a delivery date", new_booking_path, class: "btn btn-success" %><br>
+<p></p>
+  <%= link_to "Empty cart", carts_destroy_path(@current_cart), class: "btn btn-secondary", method: :delete, data: {confirm: "Are you sure?"} %>
+</div>

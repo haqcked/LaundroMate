@@ -1,0 +1,15 @@
+
+<div class="container justify-content-center p-4">
+  <h3>A list of our services</h3>
+
+
+
+  <% @services.each do |service| %>
+    <%= service.name %><br>
+    <%= service.description %><br>
+    <%= service.price %>
+    <%= button_to "Add #{service.name} to cart", line_items_path(:service_id => service.id)%>
+  <% end %>
+
+
+</div>
