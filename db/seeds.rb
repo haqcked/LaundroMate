@@ -10,15 +10,27 @@ puts "cleaning database for services and chatroom"
 Service.destroy_all
 
 lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+c1 = "Wash, Dry and Fold"
+c2 = "Wash, Dry and Iron"
+c3 = "Iron"
 
-puts "creating service 1"
-Service.create!(name: "Up to 4 kg", description: lorem, price: 25)
-puts "creating service 2"
-Service.create!(name: "Up to 8 kg", description: lorem, price: 35)
-puts "creating service 3"
-Service.create!(name: "Up to 10 kg", description: lorem, price: 40)
-puts "creating service 4"
-Service.create!(name: "Up to 12 kg", description: lorem, price: 50)
+puts "creating category 1 services"
+Service.create(category: c1, name: "Up to 2 kg", description: lorem, price: 10)
+Service.create(category: c1, name: "Up to 4 kg", description: lorem, price: 25)
+Service.create(category: c1, name: "Up to 8 kg", description: lorem, price: 35)
+Service.create(category: c1, name: "Up to 12 kg", description: lorem, price: 50)
+
+puts "creating category 2 services"
+Service.create(category: c2, name: "Up to 2 kg", description: lorem, price: 25)
+Service.create(category: c2, name: "Up to 4 kg", description: lorem, price: 40)
+Service.create(category: c2, name: "Up to 8 kg", description: lorem, price: 70)
+Service.create(category: c2, name: "Up to 12 kg", description: lorem, price: 90)
+
+puts "creating category 3 services"
+Service.create(category: c3, name: "Up to 2 kg", description: lorem, price: 28)
+Service.create(category: c3, name: "Up to 4 kg", description: lorem, price: 32)
+Service.create(category: c3, name: "Up to 8 kg", description: lorem, price: 56)
+Service.create(category: c3, name: "Up to 12 kg", description: lorem, price: 72)
 
 puts "=========================================="
 
