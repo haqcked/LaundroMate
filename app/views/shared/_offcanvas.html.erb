@@ -9,11 +9,13 @@
         <h2>Cart show</h2>
         <ul>
           <% @cart.line_items.each do |line_item| %>
-            <li>Item: <%= line_item.service.name %> <br>
+            <li>Service: <%= line_item.service.category %> <br>
+                Weight: <%= line_item.service.name %> <br>
                 Price: <%= number_to_currency(line_item.service.price) %> <br>
                 Quantity: <%= line_item.quantity %> <br>
                 Total Price: <%= number_to_currency(line_item.total_price) %> <br>
                 <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
+          <p></p>
           <% end %>
         </ul>
         <br>
@@ -33,7 +35,7 @@
             <p>
               <%= f.label :delivery_date %><br>
               <%= f.date_field :delivery_date, required: true, autofocus: true %>
-              <%= f.time_field :pickup_date, required: true, autofocus: true %>
+              <%= f.time_field :delivery_date, required: true, autofocus: true %>
             </p>
             <p>
               <%= f.submit class: "btn btn-success"%>
