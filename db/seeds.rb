@@ -27,10 +27,10 @@ Service.create(category: c2, name: "Up to 8 kg", description: lorem, price: 70)
 Service.create(category: c2, name: "Up to 12 kg", description: lorem, price: 90)
 
 puts "creating category 3 services"
-Service.create(category: c3, name: "Up to 2 kg", description: lorem, price: 28)
-Service.create(category: c3, name: "Up to 4 kg", description: lorem, price: 32)
-Service.create(category: c3, name: "Up to 8 kg", description: lorem, price: 56)
-Service.create(category: c3, name: "Up to 12 kg", description: lorem, price: 72)
+Service.create(category: c3, name: "Up to 2 kg", description: lorem, price: 13)
+Service.create(category: c3, name: "Up to 4 kg", description: lorem, price: 30)
+Service.create(category: c3, name: "Up to 8 kg", description: lorem, price: 50)
+Service.create(category: c3, name: "Up to 12 kg", description: lorem, price: 70)
 
 puts "=========================================="
 
@@ -48,6 +48,9 @@ User.create!(
 )
 
 puts "cleaning Message database"
+Message.destroy_all
+
+puts "cleaning Chatroom database"
 Message.destroy_all
 
 # puts "creating laundromate chatroom"
