@@ -1,15 +1,78 @@
-
-<div class="container justify-content-center p-4">
+<div class="container p-4 mb-2">
   <h3>A list of our services</h3>
+  <div class="d-flex justify-content-center">
+
+        <%= render partial: 'shared/offcanvas' %>
+
+  </div>
+  <div class="container p-4">
+    <div class="d-flex justify-content-around flex-wrap">
+
+<%# Wash, Dry and Fold %>
+
+    <div class="col-7 m-4">
+      <div class="card p-4 rounded-4">
+        <div class="Description">
+          <% @services.where(category: "Wash, Dry and Fold").group_by(&:category).each do |category, service| %>
+            <h3><%= category %></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          <% end %>
+          <% @services.where(category: "Wash, Dry and Fold").group_by(&:category).each do |category, services| %>
+            <div class="d-flex justify-content-center">
+            <% services.each do |service| %>
+              <%= button_to "#{service.name} - $#{service.price}.00", line_items_path(:service_id => service.id), class: "btn btn-primary m-2"%>
+            <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+<%# Wash, Dry and Iron %>
+
+    <div class="col-7 m-4">
+      <div class="card p-4 rounded-4">
+        <div class="Description">
+          <% @services.where(category: "Wash, Dry and Iron").group_by(&:category).each do |category, service| %>
+            <h3><%= category %></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          <% end %>
+          <% @services.where(category: "Wash, Dry and Iron").group_by(&:category).each do |category, services| %>
+            <div class="d-flex justify-content-center">
+            <% services.each do |service| %>
+              <%= button_to "#{service.name} - $#{service.price}.00", line_items_path(:service_id => service.id), class: "btn btn-primary m-2"%>
+            <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%# IRON %>
+
+    <div class="col-7 m-4">
+      <div class="card p-4 rounded-4">
+        <div class="Description">
+          <% @services.where(category: "Iron").group_by(&:category).each do |category, service| %>
+            <h3><%= category %></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          <% end %>
+          <% @services.where(category: "Iron").group_by(&:category).each do |category, services| %>
+            <div class="d-flex justify-content-center">
+            <% services.each do |service| %>
+              <%= button_to "#{service.name} - $#{service.price}.00", line_items_path(:service_id => service.id), class: "btn btn-primary m-2"%>
+            <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
 
 
-  <% @services.each do |service| %>
-    <%= service.name %><br>
-    <%= service.description %><br>
-    <%= service.price %>
-    <%= button_to "Add #{service.name} to cart", line_items_path(:service_id => service.id)%>
-  <% end %>
 
-
+<%# ----- %>
+  </div>
 </div>
