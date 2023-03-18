@@ -10,13 +10,9 @@
           <div class="card-body">
           <% @bookings.each do |booking| %>
 
-            <div class="d-flex justify-content-between align-items-center pe-3">
-
-
-            </div>
-            <div class="d-flex justify-content-between align-items-center pe-3">
+            <div class="">
               <div class="dates_details">
-                  <h4>Customer: <%= booking.user.nickname %></h4>
+                <h4>Customer: <%= booking.user.nickname %></h4>
                 <p>Pickup date: <%= booking.pickup_date %></p>
                 <p>Delivery date: <%= booking.delivery_date %></p>
                 <p>Services: </p>
@@ -26,23 +22,24 @@
 
                   <% end %>
                 </ul>
-                <h3>Total cost: <%= booking.total_price %></h3>
-                <p>Status: <%= booking.status %></p>
-            <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger",
-            data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
+                <div class="d-flex align-items-end flex-column">
+                  <p>Status: <%= booking.status %></p>
+                  <h3>Total cost: $<%= booking.total_price %></h3>
+                  <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger",
+                  data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
+                </div>
 
             <hr>
           <% end %>
         </div>
-      </div>
-
+</div>
 
     </div>
     </div>
     </div>
   </div>
     <div>
-      <h3>Grand total: <%= @bookings.sum(&:total_price) %></h3>
+      <h3>Grand total: $<%= @bookings.sum(&:total_price) %></h3>
     </div>
   </div>
   </div>

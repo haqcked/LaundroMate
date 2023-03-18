@@ -70,6 +70,74 @@
   </div>
   </div>
 
+<%# try--------------- %>
+<% @services.where(category: "Wash, Dry and Fold").group_by(&:category).each do |category, services| %>
+  <div class="card p-4 rounded-4">
+    <div class="card-header">
+      <h3><%= category %></h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    </div>
+    <div class="card-body">
+      <% services.each do |service| %>
+        <%= button_to line_items_path(:service_id => service.id), method: :post, class: "btn btn-primary m-2" do %>
+          <div class="card p-2">
+            <div class="card-body">
+              <h5 class="card-title"><%= service.name %> - $<%= service.price %>.00</h5>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <% @services.where(category: "Wash, Dry and Fold").group_by(&:category).each do |category, services| %>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-header">
+            <h3><%= category %></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          </div>
+          <div class="card-body">
+            <% services.each do |service| %>
+              <div class="card mb-2" data-service-id="<%= service.id %>">
+                <div class="card-body">
+                  <h5 class="card-title"><%= service.name %> - $<%= service.price %>.00</h5>
+                  <p class="card-text"><%= service.description %></p>
+                </div>
+              </div>
+            <% end %>
+            <div class="text-center">
+              <%= button_to "Add to Cart", line_items_path(:service_id => ""), class: "btn btn-primary m-2", id: "add-to-cart-btn", disabled: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $(".card").click(function() {
+      $(".card").removeClass("active");
+      $(this).addClass("active");
+      $("#add-to-cart-btn").prop("disabled", false);
+      $("#add-to-cart-btn").attr("data-service-id", $(this).data("service-id"));
+    });
+
+    $("#add-to-cart-btn").click(function() {
+      var serviceId = $(this).attr("data-service-id");
+      if (serviceId) {
+        $(this).attr("href", "/line_items?service_id=" + serviceId);
+      }
+    });
+  });
+</script>
+
+
 
 
 
