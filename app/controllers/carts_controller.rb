@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   def show
+    @user = current_user
     @cart = @current_cart
   end
 
@@ -7,6 +8,6 @@ class CartsController < ApplicationController
     @cart = @current_cart
     @cart.destroy
     session[:cart_id] = nil
-    redirect_to carts_show_path
+    redirect_to services_path
   end
 end
