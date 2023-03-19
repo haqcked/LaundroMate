@@ -2,7 +2,19 @@
 
 <div class="banner">
   <div class="banner-content text-center">
-    <h1>Spend your precious time with your family.</h1>
+    <h1>Spend your precious time with your <span class="auto-type"></span>
+    </h1>
+    <%# JS trial start %>
+    <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+    <script>
+    var typed = new Typed(".auto-type", {
+      strings: ["family", "friends", "pets", "kids", "partners", "loved ones"],
+      typeSpeed: 150,
+      backSpeed: 150,
+      loop: true
+    })
+    </script>
+    <%# JS trial end %>
     <p>Let Laundromate take the load off your laundry day!</p>
 
     <%= link_to services_path do %>
@@ -26,3 +38,37 @@
   </div>
 </div>
 
+  <div class="about container pb-4">
+    <%# <h3>How it Works</h3> %>
+    <div class="row align-items-start">
+      <div class="col text-center pt-5">
+        <i class="fa-solid fa-jug-detergent fa-3x fa-fade py-5"></i>
+        <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        </p>
+      </div>
+      <div class="col text-center pt-5">
+        <i class="fa-solid fa-calendar-days fa-3x fa-fade py-5"></i>
+        <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        </p>
+      </div>
+      <div class="col text-center pt-5">
+        <i class="fa-solid fa-soap fa-3x fa-fade py-5"></i>
+        <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+        </p>
+      </div>
+    </div>
+  </div>
+
+<div class="about p-5">
+  <div class="row">
+    <div class="col">
+      <h3>Leave laundry day up to us!</h3>
+    </div>
+    <div class="col">
+     <img src="https://www.rd.com/wp-content/uploads/2021/09/GettyImages-1181334518-MLedit.jpg?resize=1536,1024" alt="Laundry Room">
+    </div>
+  </div>
+</div>
