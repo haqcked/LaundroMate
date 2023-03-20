@@ -1,44 +1,46 @@
-<div class="container my-5">
-  <div class="col">
+<body>
+  <div class="container my-5">
+    <div class="col">
 
-    <div class="card rounded-4">
+      <div class="card rounded-4">
 
-      <div class="card-header d-flex justify-content-between align-items-center">
-        <h3 class="bookings-greeting"><%= current_user.first_name.capitalize %>'s bookings</h3>
-        <p><%= pluralize(current_user.bookings.count, "booking") %></p>
-      </div>
-      <div class="card-body">
-        <% @bookings.each do |booking| %>
-          <div class="row d-flex justify-content-between align-items-center">
-            <div class="col py-4">
-                <div class="dates_details">
-                  <h4>Customer: <%= booking.user.nickname %></h4>
-                  <p>Pickup date: <%= booking.pickup_date %></p>
-                  <p>Delivery date: <%= booking.delivery_date %></p>
-                  <p>Services: </p>
-                  <ul>
-                    <% booking.line_items.each do |item| %>
-                      <li><%= item.service.category %> - <%= item.service.name %> - $<%= item.service.price %>
-                      </li>
-                    <% end %>
-                  </ul>
-                </div>
-            </div>
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h3 class="bookings-greeting"><%= current_user.first_name.capitalize %>'s bookings</h3>
+          <p><%= pluralize(current_user.bookings.count, "booking") %></p>
+        </div>
+        <div class="card-body">
+          <% @bookings.each do |booking| %>
+            <div class="row d-flex justify-content-between align-items-center">
               <div class="col py-4">
-                <div class="d-flex align-items-end flex-column">
-                  <p>Status: <%= booking.status %></p>
-                  <h3>Total cost: $<%= booking.total_price %></h3>
-                  <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger text-white rounded-4",
-                  data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
-                </div>
+                  <div class="dates_details">
+                    <h4>Customer: <%= booking.user.nickname %></h4>
+                    <p>Pickup date: <%= booking.pickup_date %></p>
+                    <p>Delivery date: <%= booking.delivery_date %></p>
+                    <p>Services: </p>
+                    <ul>
+                      <% booking.line_items.each do |item| %>
+                        <li><%= item.service.category %> - <%= item.service.name %> - $<%= item.service.price %>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
               </div>
-            <hr>
+                <div class="col py-4">
+                  <div class="d-flex align-items-end flex-column">
+                    <p>Status: <%= booking.status %></p>
+                    <h3>Total cost: $<%= booking.total_price %></h3>
+                    <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger text-white rounded-4",
+                    data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
+                  </div>
+                </div>
+              <hr>
+            </div>
+          <% end %>
+          <div>
+            <h3>Grand total: $<%= @bookings.sum(&:total_price) %></h3>
           </div>
-        <% end %>
-        <div>
-          <h3>Grand total: $<%= @bookings.sum(&:total_price) %></h3>
         </div>
       </div>
     </div>
   </div>
-</div>
+</body>
