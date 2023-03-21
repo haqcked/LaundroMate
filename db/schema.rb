@@ -73,10 +73,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_190901) do
   create_table "line_items", force: :cascade do |t|
     t.integer "quantity", default: 1
     t.bigint "service_id", null: false
+<<<<<<< HEAD
     t.bigint "cart_id", null: false
 <<<<<<< HEAD
     t.bigint "booking_id", null: false
 =======
+=======
+    t.bigint "cart_id"
+>>>>>>> 69a5086e2a0a4fc623a5794053f94c8a8c930a7b
     t.bigint "booking_id"
 >>>>>>> 083bc724a3cfdb0c24d0d684c77a942739645a0d
     t.datetime "created_at", null: false
