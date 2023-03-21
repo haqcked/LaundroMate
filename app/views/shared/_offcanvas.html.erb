@@ -36,21 +36,14 @@
         <h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3><br>
 
           <%# date picker %>
-          <%= simple_form_for (@booking) do |f| %>
-            <p>
-              <%= f.label :pickup_date %><br>
-              <%= f.date_field :pickup_date, required: true, autofocus: true %>
-              <%= f.time_field :pickup_date, required: true, autofocus: true %>
-            </p>
-            <p>
-              <%= f.label :delivery_date %><br>
-              <%= f.date_field :delivery_date, required: true, autofocus: true %>
-              <%= f.time_field :delivery_date, required: true, autofocus: true %>
-            </p>
-            <p>
-              <%= f.submit class: "btn btn-success"%>
-            </p>
-          <% end %>
+
+          <div>
+            <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+              <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+              <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+              <%= f.submit 'Schedule your booking' %>
+            <% end %>
+          </div>
           <%# === %>
         <p></p>
       </div>
@@ -59,4 +52,5 @@
 
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
   See my cart
+  <i class="fa-solid fa-cart-shopping"></i>
 </button>

@@ -1,5 +1,5 @@
 <div class="container chatroom">
-  <h1><%= @chatroom.name %></h1>
+  <h1>Laundromate Chatroom - <%= current_user.nickname %></h1>
 
   <div class="messages">
     <% @chatroom.messages.each do |message| %>
@@ -19,7 +19,7 @@
 %>
   <%= f.input :content,
     label: false,
-    placeholder: "Message #{@chatroom.name}",
+    placeholder: "Type your message here",
     wrapper_html: {class: "flex-grow-1"}
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
