@@ -41,7 +41,7 @@
             <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
               <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
               <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-              <%= f.submit 'Schedule your booking' %>
+              <%= f.submit 'Confirm Dates' %>
             <% end %>
           </div>
           <%# === %>
