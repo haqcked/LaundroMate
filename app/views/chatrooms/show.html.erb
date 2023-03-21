@@ -1,4 +1,4 @@
-<div class="container chatroom">
+<div class="container chatroom p-4">
   <h1>Laundromate Chatroom - <%= current_user.nickname %></h1>
 
   <div class="messages">
@@ -12,15 +12,14 @@
       </div>
     <% end %>
   </div>
-</div>
-
-<%= simple_form_for [@chatroom, @message],
-  html: {class: "d-flex"} do |f|
-%>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Type your message here",
-    wrapper_html: {class: "flex-grow-1"}
+  <%= simple_form_for [@chatroom, @message],
+    html: {class: "d-flex"} do |f|
   %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-<% end %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Type your message here",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>

@@ -33,6 +33,20 @@ Service.create(category: c3, name: "Up to 8 kg", description: lorem, price: 50)
 Service.create(category: c3, name: "Up to 12 kg", description: lorem, price: 70)
 
 puts "=========================================="
+puts "cleaning User database"
+User.destroy_all
+
+puts "cleaning Cart database"
+Cart.destroy_all
+
+puts "cleaning LineItem database"
+LineItem.destroy_all
+
+puts "cleaning Message database"
+Message.destroy_all
+
+puts "cleaning Chatroom database"
+Chatroom.destroy_all
 
 puts "cleaning Admin database"
 User.where(admin: true).destroy_all
@@ -47,11 +61,7 @@ User.create!(
   admin: true,
 )
 
-puts "cleaning Message database"
-Message.destroy_all
 
-puts "cleaning Chatroom database"
-Message.destroy_all
 
 # puts "creating laundromate chatroom"
 # Chatroom.create!(name: "laundromate")
