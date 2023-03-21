@@ -7,25 +7,36 @@
 
     <div class="container p-4">
         <h2>Cart show</h2>
-        <ul>
           <% @cart.line_items.each do |line_item| %>
-            <li>Service: <%= line_item.service.category %> <br>
-                Weight: <%= line_item.service.name %> <br>
-                Price: <%= number_to_currency(line_item.service.price) %> <br>
-                Quantity: <%= line_item.quantity %> <br>
-                Total Price: <%= number_to_currency(line_item.total_price) %> <br>
-                <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
-          <p></p>
+            <div>
+              Service: <strong><%= line_item.service.category %></strong> <br>
+              Weight: <strong><%= line_item.service.name %></strong> <br>
+              Price: <strong>$<%= line_item.service.price %></strong> <br>
+              <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
+            </div>
+          <hr>
           <% end %>
-        </ul>
-        <br>
         <%= link_to "Add another service", services_path, class: "btn btn-primary" %>
+
         <%= link_to "Empty cart", carts_destroy_path(@current_cart), class: "btn btn-secondary", method: :delete, data: {confirm: "Are you sure?"} %>
+        <hr>
+        <%= link_to carts_destroy_path(@current_cart) do %>
+          <button class="d-btn">
+            <p class="paragraph"> Empty Cart </p>
+            <span class="icon-wrapper">
+              <svg class="icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 7V18C6 19.1046 6.89543 20 8 20H16C17.1046 20 18 19.1046 18 18V7M6 7H5M6 7H8M18 7H19M18 7H16M10 11V16M14 11V16M8 7V5C8 3.89543 8.89543 3 10 3H14C15.1046 3 16 3.89543 16 5V7M8 7H16" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </span>
+          </button>
+          <% end %>
+
         <hr>
 
         <h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3><br>
 
           <%# date picker %>
+
           <div>
             <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
               <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>

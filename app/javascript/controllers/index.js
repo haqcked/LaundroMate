@@ -18,3 +18,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import SelectItemController from "./select_item_controller"
+application.register("select-item", SelectItemController)
