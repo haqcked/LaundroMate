@@ -6,6 +6,7 @@ class LineItemsController < ApplicationController
     current_cart = @current_cart
 
   def show
+    @line_item = LineItem.find(params[:id])
   end
 
     # If cart already has this product then find the relevant line_item and iterate quantity otherwise create a new line_item for this product
@@ -31,6 +32,7 @@ class LineItemsController < ApplicationController
   end
 
   def destroy
+    # raise
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     redirect_to cart_path(@current_cart)

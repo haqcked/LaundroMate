@@ -1,27 +1,77 @@
 <%= content_for(:navbar_class, "navbar-home") %>
 
-<div class="banner">
-  <div class="banner-content text-center">
-    <h1>Spend your precious time with your family.</h1>
-    <p>Let Laundromate take the load off your laundry day!</p>
+<body>
+  <div class="banner">
+    <div class="banner-content text-center">
+      <h1>Spend your precious time with your <span class="auto-type"></span>
+      </h1>
+      <%# JS trial start %>
+      <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+      <script>
+      var typed = new Typed(".auto-type", {
+        strings: ["family", "friends", "pets", "kids", "partners", "loved ones"],
+        typeSpeed: 150,
+        backSpeed: 150,
+        loop: true
+      })
+      </script>
+      <%# JS trial end %>
+      <p>Let Laundromate take the load off your laundry day!</p>
 
-    <%= link_to services_path do %>
-      <button class="c-button c-button--gooey"> Book now!
-        <div class="c-button__blobs">
-        <div></div>
-        <div></div>
-        <div></div>
-        </div>
-      </button>
-    <% end %>
-    <svg style="display: block; height: 0; width: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="goo">
-          <feGaussianBlur result="blur" stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
-          <feColorMatrix result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" mode="matrix" in="blur"></feColorMatrix>
-          <feBlend in2="goo" in="SourceGraphic"></feBlend>
-        </filter>
-      </defs>
-    </svg>
+      <%= link_to services_path do %>
+        <button class="c-button c-button--gooey"> Book now!
+          <div class="c-button__blobs">
+          <div></div>
+          <div></div>
+          <div></div>
+          </div>
+        </button>
+      <% end %>
+      <svg style="display: block; height: 0; width: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur result="blur" stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
+            <feColorMatrix result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" mode="matrix" in="blur"></feColorMatrix>
+            <feBlend in2="goo" in="SourceGraphic"></feBlend>
+          </filter>
+        </defs>
+      </svg>
+    </div>
   </div>
-</div>
+
+
+  <div class="about container pb-4">
+    <%# <h3>How it Works</h3> %>
+    <div class="row align-items-start">
+      <div class="col text-center pt-5">
+        <i class="fa-solid fa-jug-detergent fa-3x fa-fade py-5"></i>
+        <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        </p>
+      </div>
+      <div class="col text-center pt-5">
+        <i class="fa-solid fa-calendar-days fa-3x fa-fade py-5"></i>
+        <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        </p>
+      </div>
+      <div class="col text-center pt-5">
+        <i class="fa-solid fa-soap fa-3x fa-fade py-5"></i>
+        <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="about p-5">
+    <div class="row">
+      <div class="col">
+        <h3>Leave laundry day up to us!</h3>
+      </div>
+      <div class="col">
+      <img src="https://www.rd.com/wp-content/uploads/2021/09/GettyImages-1181334518-MLedit.jpg?resize=1536,1024" alt="Laundry Room">
+      </div>
+    </div>
+  </div>
+</body>

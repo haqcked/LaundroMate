@@ -10,7 +10,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script><script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+
   </head>
 
   <body>
@@ -18,5 +19,7 @@
     <%= render "shared/flashes" %>
 
     <%= yield %>
+
+    <%= render 'shared/footer' %>
   </body>
 </html>

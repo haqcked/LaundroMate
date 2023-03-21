@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_182955) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_16_190901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,13 +66,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_182955) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
   create_table "line_items", force: :cascade do |t|
     t.integer "quantity", default: 1
     t.bigint "service_id", null: false
     t.bigint "cart_id", null: false
+<<<<<<< HEAD
     t.bigint "booking_id", null: false
+=======
+    t.bigint "booking_id"
+>>>>>>> 083bc724a3cfdb0c24d0d684c77a942739645a0d
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_line_items_on_booking_id"
@@ -106,6 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_182955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price"
+    t.string "category"
   end
 
   create_table "users", force: :cascade do |t|
@@ -131,6 +138,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_182955) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "services"
   add_foreign_key "bookings", "users"
+  add_foreign_key "chatrooms", "users"
   add_foreign_key "line_items", "bookings"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "services"

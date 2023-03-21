@@ -1,0 +1,45 @@
+<div class="offcanvas offcanvas-end m-3 rounded-4" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">My cart</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+
+    <div class="container p-4">
+        <h2>Cart show</h2>
+        <ul>
+          <% @cart.line_items.each do |line_item| %>
+            <li>Service: <%= line_item.service.category %> <br>
+                Weight: <%= line_item.service.name %> <br>
+                Price: <%= number_to_currency(line_item.service.price) %> <br>
+                Quantity: <%= line_item.quantity %> <br>
+                Total Price: <%= number_to_currency(line_item.total_price) %> <br>
+                <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
+          <p></p>
+          <% end %>
+        </ul>
+        <br>
+        <%= link_to "Add another service", services_path, class: "btn btn-primary" %>
+        <%= link_to "Empty cart", carts_destroy_path(@current_cart), class: "btn btn-secondary", method: :delete, data: {confirm: "Are you sure?"} %>
+        <hr>
+
+        <h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3><br>
+
+          <%# date picker %>
+          <div>
+            <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+              <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+              <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+              <%= f.submit 'Schedule your booking' %>
+            <% end %>
+          </div>
+          <%# === %>
+        <p></p>
+      </div>
+  </div>
+</div>
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  See my cart
+  <i class="fa-solid fa-cart-shopping"></i>
+</button>
