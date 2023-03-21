@@ -7,18 +7,15 @@
 
     <div class="container p-4">
         <h2>Cart show</h2>
-        <ul>
           <% @cart.line_items.each do |line_item| %>
-            <li>Service: <%= line_item.service.category %> <br>
-                Weight: <%= line_item.service.name %> <br>
-                Price: <%= number_to_currency(line_item.service.price) %> <br>
-                Quantity: <%= line_item.quantity %> <br>
-                Total Price: <%= number_to_currency(line_item.total_price) %> <br>
-                <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
-          <p></p>
+            <div>
+              Service: <strong><%= line_item.service.category %></strong> <br>
+              Weight: <strong><%= line_item.service.name %></strong> <br>
+              Price: <strong>$<%= line_item.service.price %></strong> <br>
+              <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
+            </div>
+          <hr>
           <% end %>
-        </ul>
-        <br>
         <%= link_to "Add another service", services_path, class: "btn btn-primary" %>
 
         <%= link_to "Empty cart", carts_destroy_path(@current_cart), class: "btn btn-secondary", method: :delete, data: {confirm: "Are you sure?"} %>
@@ -39,7 +36,7 @@
         <h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3><br>
 
           <%# date picker %>
-          <%= form_for (@booking) do |f| %>
+          <%= simple_form_for (@booking) do |f| %>
             <p>
               <%= f.label :pickup_date %><br>
               <%= f.date_field :pickup_date, required: true, autofocus: true %>

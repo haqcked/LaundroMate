@@ -2,7 +2,7 @@ class LineItemsController < ApplicationController
 
   def create
     # Find associated product and current cart
-    chosen_service = Service.find(params[:service_id])
+    chosen_service = Service.find(params[:line_item][:service_id])
     current_cart = @current_cart
 
     unless current_cart.services.include?(chosen_service)
@@ -13,7 +13,7 @@ class LineItemsController < ApplicationController
     end
     # Save and redirect to cart show path
     # this may be deleted and let STIMULUS handle the toggle for the off canvas
-    redirect_to cart_path(current_cart)
+    redirect_to services_path
   end
 
   def show
