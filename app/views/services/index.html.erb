@@ -6,11 +6,11 @@
 
   <%# NEW SET========================================================== %>
 
-  <div class="container p-4 bg-danger my-4" data-controller="select-item">
-    <div class="row bg-secondary justify-content-around">
+  <div class="container p-4 my-4" data-controller="select-item">
+    <div class="row justify-content-around">
 
       <%# Wash Dry FOLD =============================================== %>
-      <div class="col-12 col-md-3 bg-success py-4 rounded-4">
+      <div class="card-index col-12 col-md-3 py-4 rounded-4">
         <%= simple_form_for(@line_item) do |f| %>
           <div class="card-header">
             <h3><%= @wash_dry_fold_services.first.category %></h3>
@@ -29,9 +29,10 @@
       </div>
 
       <%# Wash Dry IRON =============================================== %>
-      <div class="col-12 col-md-3 bg-success py-4 rounded-4">
+      <div class="card-index col-12 col-md-3 py-4 rounded-4">
         <%= simple_form_for(@line_item) do |f| %>
           <div class="card-header">
+            <h3><i class="fa-solid fa-jug-detergent"></i> <i class="fa-solid fa-shirt"></i></h3>
             <h3><%= @wash_dry_iron_services.first.category %></h3>
           </div>
           <div class="card-body">
@@ -48,31 +49,41 @@
       </div>
 
       <%# IRON ======================================================== %>
-      <div class="col-12 col-md-3 bg-success py-4 rounded-4">
-        <%= simple_form_for(@line_item) do |f| %>
+      <div class="card-index col-12 col-md-3 py-4 rounded-4">
+        <%= simple_form_for @line_item, data: { select_item_target: "form" } do |f| %>
           <div class="card-header">
             <h3><%= @iron_services.first.category %></h3>
           </div>
           <div class="card-body">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+
             <div class="form-group">
-              <%= f.input :service_id, collection: @iron_services,
-                  label_method: :name, label_value: :id, include_hidden: false %>
+              <div class="mb-3 select optional line_item_service_id">
+                <label class="form-label select optional" for="line_item_service_id">Service</label>
+                <select class="form-select select optional" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
+                  <option value="9" data-service="Iron" data-price="13" data-weight="Up to 2 kg">Up to 2 kg</option>
+                  <option value="10" data-service="Iron" data-price="30" data-weight="Up to 4 kg">Up to 4 kg</option>
+                  <option value="11" data-service="Iron" data-price="50" data-weight="Up to 8 kg">Up to 8 kg</option>
+                  <option value="12" data-service="Iron" data-price="70" data-weight="Up to 12 kg">Up to 12 kg</option>
+                </select>
+              </div>
             </div>
           </div>
           <div class="d-grid gap-2 col-2 mx-auto mt-4" >
             <%= f.button :submit, "Add to cart",
-            class: "btn btn-primary",
-            data: { bs_toggle: 'offcanvas',
-                    bs_target: '#offcanvasExample',
-                    bs_controls: 'offcanvasExample' } %>
+                class: "btn btn-primary",
+                data: { bs_toggle: 'offcanvas',
+                        bs_target: '#offcanvasExample',
+                        bs_controls: 'offcanvasExample',
+                        select_item_target: "addItem",
+                        action: "click->select-item#add" } %>
           </div>
         <% end %>
       </div>
-
+    <%# cards container end-div %>
     </div>
   </div>
 
-<%# ----- %>
+  <%# Main container end-div %>
   </div>
 </div>

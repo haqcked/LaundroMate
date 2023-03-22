@@ -5,17 +5,19 @@
   </div>
   <div class="offcanvas-body">
 
-    <div class="container p-4">
+    <div class="container p-2">
         <h2>Cart show</h2>
+        <div id="modal">
           <% @cart.line_items.each do |line_item| %>
-            <div>
-              Service: <strong><%= line_item.service.category %></strong> <br>
-              Weight: <strong><%= line_item.service.name %></strong> <br>
-              Price: <strong>$<%= line_item.service.price %></strong> <br>
+            <div class="card-order p-4">
+              <p>Service: <strong><%= line_item.service.category %></strong></p>
+              <p>Weight: <strong><%= line_item.service.name %></strong></p>
+              <p>Price: <strong>$<%= line_item.service.price %></strong></p>
               <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
             </div>
           <hr>
           <% end %>
+        </div>
         <%= link_to "Add another service", services_path, class: "btn btn-primary" %>
 
         <%= link_to "Empty cart", carts_destroy_path(@current_cart), class: "btn btn-secondary", method: :delete, data: {confirm: "Are you sure?"} %>
@@ -32,16 +34,17 @@
           <% end %>
 
         <hr>
-
-        <h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3><br>
+        <%= turbo_frame_tag @cart do %>
+        <h3 id="subtotal">Sub total: <%= number_to_currency(@cart.sub_total) %></h3><br>
+<% end %>
 
           <%# date picker %>
 
-          <div>
+          <div class="card p-3">
             <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
               <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
               <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-              <%= f.submit 'Confirm Dates' %>
+              <%= f.submit 'Confirm Dates', class: "btn btn-primary text-white"%>
             <% end %>
           </div>
           <%# === %>
@@ -50,7 +53,7 @@
   </div>
 </div>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" >
   See my cart
   <i class="fa-solid fa-cart-shopping"></i>
 </button>
