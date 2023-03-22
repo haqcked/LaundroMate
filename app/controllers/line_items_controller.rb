@@ -13,7 +13,8 @@ class LineItemsController < ApplicationController
     end
     # Save and redirect to cart show path
     # this may be deleted and let STIMULUS handle the toggle for the off canvas
-    redirect_to services_path
+    # redirect_to services_path
+    render json: @line_item
   end
 
   def show
