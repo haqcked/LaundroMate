@@ -1,93 +1,54 @@
-// import { Controller } from "@hotwired/stimulus"
-
-// // Connects to data-controller="select-item"
-// export default class extends Controller {
-//   static targets = ["item_1", "item_2", "item_3"];
-
-//   connect() {
-//     console.log(this.item_1Target);
-//     console.log(this.item_2Target.value);
-//     console.log(this.item_3Target.value);
-//   }
-
-//   saveItem() {
-//     console.log("pressing on 'Add to cart'")
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
 import { Controller } from "@hotwired/stimulus"
 
+// Connects to data-controller="select-item"
 export default class extends Controller {
-  static targets = ["item_1", "item_2", "item_3"];
+  static targets = ["addItem", "form"];
 
-  saveItem() {
-    const selectedItems = [];
+  connect() {
+    console.log(this.addItemTarget);
 
-    // Check if a weight is selected for wash, dry and fold category
-    const washDryFoldSelect = this.item_1Target;
-    const washDryFoldValue = washDryFoldSelect.value;
-    if (washDryFoldValue !== "") {
-      const selectedItem = {
-        service_id: washDryFoldValue,
-        category: washDryFoldSelect.getAttribute("data-select-item-target")
-      };
-      selectedItems.push(selectedItem);
-    }
+  }
 
-    // Check if a weight is selected for wash, dry and iron category
-    const washDryIronSelect = this.item_2Target;
-    const washDryIronValue = washDryIronSelect.value;
-    if (washDryIronValue !== "") {
-      const selectedItem = {
-        service_id: washDryIronValue,
-        category: washDryIronSelect.getAttribute("data-select-item-target")
-      };
-      selectedItems.push(selectedItem);
-    }
+  add(event) {
+    // console.log(this.formTarget)
+    event.preventDefault()
+    const url = this.formTarget.action
+    const method = this.formTarget.method || 'POST'
+    // console.log(this.formTarget)
+    const serviceOption = this.formTarget.querySelector('#line_item_service_id option:checked')
+    const price = serviceOption.getAttribute('data-price')
+    const service = serviceOption.getAttribute('data-service')
+    const weight = serviceOption.getAttribute('data-weight')
+    const formData = new FormData(this.formTarget)
+    fetch(url, {
+      method: method,
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        const modal = document.getElementById("modal")
+        console.log(modal)
+        let subtotal = 0
+        for (let i = 0; i < modal.children.length; i++) {
+          const childElement = modal.children[i];
 
-    // Check if a weight is selected for iron category
-    const ironSelect = this.item_3Target;
-    const ironValue = ironSelect.value;
-    if (ironValue !== "") {
-      const selectedItem = {
-        service_id: ironValue,
-        category: ironSelect.getAttribute("data-select-item-target")
-      };
-      selectedItems.push(selectedItem);
-    }
+          if (childElement.classList.contains('card-order')) {
+            const priceElement = childElement.querySelector('p:nth-child(3) strong');
+            const priceValue = priceElement.textContent.trim().split('$')[1];
+            console.log(priceElement)
+            console.log(priceValue)
+            subtotal += parseInt(priceValue);
+          }
+            // Update the DOM with the extracted price value
 
-    // Save the selected items to line items
-    if (selectedItems.length > 0) {
-      const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-      fetch("/line_items", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-Token": csrfToken
-        },
-        body: JSON.stringify({ line_item: selectedItems })
-      }).then(response => {
-        if (response.ok) {
-          // Redirect to the cart page or update the cart in the UI
-          window.location.href = "/cart";
-        } else {
-          // Handle the error
-          console.error(response.statusText);
         }
-      }).catch(error => {
-        console.error(error);
-      });
-    }
+        const id = 'subtotal';
+        const elementToUpdate = document.getElementById(id);
+        subtotal += parseInt(price)
+        modal.insertAdjacentHTML("beforeend",  "<div class='card-order p-4'>" + "<p>Service: <strong> " + `${service}` + "</strong></p>" +  "<p>Weight: <strong>" + `${weight}` + "</strong></p>" + "<p>Price: <strong>$" + `${price}` + "</strong></p>" + "<form class='button_to' method='post' action='/line_items/31'><input type='hidden' name='_method' value='delete' autocomplete='off'><button class='btn btn-danger' type='submit'>Remove item</button><input type='hidden'></form>" + "</div>")
+        document.getElementById("subtotal").innerHTML = "Sub Total: $" + `${subtotal}`
+      })
+      .catch(error => console.error(error))
   }
 }
