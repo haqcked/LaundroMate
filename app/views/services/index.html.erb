@@ -1,89 +1,117 @@
-<div class="container p-4 mb-2">
-  <h3>A list of our services</h3>
-  <div class="d-flex justify-content-center">
-    <%= render partial: 'shared/offcanvas' %>
-  </div>
+<div class="banner-services">
+  <div class="container p-4 mb-2">
+    <h3 class="text-white">A list of our services</h3>
+    <div class="d-flex justify-content-center">
+      <%= render partial: 'shared/offcanvas' %>
+    </div>
 
-  <%# NEW SET========================================================== %>
+    <%# NEW SET========================================================== %>
 
-  <div class="container p-4 my-4" data-controller="select-item">
-    <div class="row justify-content-around">
+    <div class="container-cards p-4 my-4" data-controller="select-item">
+      <div class="row justify-content-around">
 
-      <%# Wash Dry FOLD =============================================== %>
-      <div class="card-index col-12 col-md-3 py-4 rounded-4">
-        <%= simple_form_for(@line_item) do |f| %>
-          <div class="card-header">
-            <h3><%= @wash_dry_fold_services.first.category %></h3>
-          </div>
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            <div class="form-group">
-              <%= f.input :service_id, collection: @wash_dry_fold_services,
-                  label_method: :name, label_value: :id, include_hidden: false %>
+        <%# Wash Dry FOLD =============================================== %>
+        <div class="card-index wash-dry-fold col-12 col-md-3 py-4 rounded-4 mb-3">
+          <%= simple_form_for @line_item, data: { select_item_target: "form" } do |f| %>
+            <div class="card-header">
+              <h3><%= @wash_dry_fold_services.first.category %></h3>
             </div>
-          </div>
-          <div class="d-grid gap-2 col-2 mx-auto mt-4" >
-            <%= f.button :submit, "Add to cart", class: "btn btn-primary"%>
-          </div>
-        <% end %>
-      </div>
-
-      <%# Wash Dry IRON =============================================== %>
-      <div class="card-index col-12 col-md-3 py-4 rounded-4">
-        <%= simple_form_for(@line_item) do |f| %>
-          <div class="card-header">
-            <h3><i class="fa-solid fa-jug-detergent"></i> <i class="fa-solid fa-shirt"></i></h3>
-            <h3><%= @wash_dry_iron_services.first.category %></h3>
-          </div>
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            <div class="form-group">
-              <%= f.input :service_id, collection: @wash_dry_iron_services,
-                  label_method: :name, label_value: :id, include_hidden: false %>
-            </div>
-          </div>
-          <div class="d-grid gap-2 col-2 mx-auto mt-4" >
-            <%= f.button :submit, "Add to cart", class: "btn btn-primary"%>
-          </div>
-        <% end %>
-      </div>
-
-      <%# IRON ======================================================== %>
-      <div class="card-index col-12 col-md-3 py-4 rounded-4">
-        <%= simple_form_for @line_item, data: { select_item_target: "form" } do |f| %>
-          <div class="card-header">
-            <h3><%= @iron_services.first.category %></h3>
-          </div>
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-
-            <div class="form-group">
-              <div class="mb-3 select optional line_item_service_id">
-                <label class="form-label select optional" for="line_item_service_id">Service</label>
-                <select class="form-select select optional" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
-                  <option value="9" data-service="Iron" data-price="13" data-weight="Up to 2 kg">Up to 2 kg</option>
-                  <option value="10" data-service="Iron" data-price="30" data-weight="Up to 4 kg">Up to 4 kg</option>
-                  <option value="11" data-service="Iron" data-price="50" data-weight="Up to 8 kg">Up to 8 kg</option>
-                  <option value="12" data-service="Iron" data-price="70" data-weight="Up to 12 kg">Up to 12 kg</option>
-                </select>
+            <div class="card-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+              <div class="form-group">
+                <div class="mb-3 select optional line_item_service_id">
+                  <label class="form-label select optional" for="line_item_service_id">Service</label>
+                  <select class="form-select select optional" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
+                    <option value="1" data-service="Wash, Dry and Fold" data-price="10" data-weight="Up to 2 kg">Up to 2 kg - 10€</option>
+                    <option value="2" data-service="Wash, Dry and Fold" data-price="25" data-weight="Up to 4 kg">Up to 4 kg - 25€</option>
+                    <option value="3" data-service="Wash, Dry and Fold" data-price="35" data-weight="Up to 8 kg">Up to 8 kg - 35€</option>
+                    <option value="4" data-service="Wash, Dry and Fold" data-price="50" data-weight="Up to 12 kg">Up to 12 kg - 50€</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="d-grid gap-2 col-2 mx-auto mt-4" >
-            <%= f.button :submit, "Add to cart",
-                class: "btn btn-primary",
-                data: { bs_toggle: 'offcanvas',
-                        bs_target: '#offcanvasExample',
-                        bs_controls: 'offcanvasExample',
-                        select_item_target: "addItem",
-                        action: "click->select-item#add" } %>
-          </div>
-        <% end %>
-      </div>
-    <%# cards container end-div %>
-    </div>
-  </div>
+            <div class="d-grid gap-2 col-2 mx-auto mt-4" >
+              <%= f.button :submit, "Add to cart",
+                  class: "btn btn-primary",
+                  data: { bs_toggle: 'offcanvas',
+                          bs_target: '#offcanvasExample',
+                          bs_controls: 'offcanvasExample',
+                          select_item_target: "addItem",
+                          action: "click->select-item#add" } %>
+            </div>
+          <% end %>
+        </div>
 
-  <%# Main container end-div %>
+        <%# Wash Dry IRON =============================================== %>
+        <div class="card-index wash-dry-iron col-12 col-md-3 py-4 rounded-4 mb-3">
+          <%= simple_form_for @line_item, data: { select_item_target: "form" } do |f| %>
+            <div class="card-header">
+              <h3><%= @wash_dry_iron_services.first.category %></h3>
+            </div>
+            <div class="card-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+
+              <div class="form-group">
+                <div class="mb-3 select optional line_item_service_id">
+                  <label class="form-label select optional" for="line_item_service_id">Service</label>
+                  <select class="form-select select optional" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
+                    <option value="5" data-service="Wash, Dry and Iron" data-price="25" data-weight="Up to 2 kg">Up to 2 kg - 25€</option>
+                    <option value="6" data-service="Wash, Dry and Iron" data-price="40" data-weight="Up to 4 kg">Up to 4 kg - 40€</option>
+                    <option value="7" data-service="Wash, Dry and Iron" data-price="70" data-weight="Up to 8 kg">Up to 8 kg - 70€</option>
+                    <option value="8" data-service="Wash, Dry and Iron" data-price="90" data-weight="Up to 12 kg">Up to 12 kg - 90€</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="d-grid gap-2 col-2 mx-auto mt-4" >
+              <%= f.button :submit, "Add to cart",
+                  class: "btn btn-primary",
+                  data: { bs_toggle: 'offcanvas',
+                          bs_target: '#offcanvasExample',
+                          bs_controls: 'offcanvasExample',
+                          select_item_target: "addItem",
+                          action: "click->select-item#add" } %>
+            </div>
+          <% end %>
+        </div>
+
+        <%# IRON ======================================================== %>
+        <div class="card-index iron col-12 col-md-3 py-4 rounded-4 mb-3">
+          <%= simple_form_for @line_item, data: { select_item_target: "form" } do |f| %>
+            <div class="card-header">
+              <h3><%= @iron_services.first.category %></h3>
+            </div>
+            <div class="card-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+
+              <div class="form-group">
+                <div class="mb-3 select optional line_item_service_id">
+                  <label class="form-label select optional" for="line_item_service_id">Service</label>
+                  <select class="form-select select optional" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
+                    <option value="9" data-service="Iron" data-price="13" data-weight="Up to 2 kg">Up to 2 kg - 13€</option>
+                    <option value="10" data-service="Iron" data-price="30" data-weight="Up to 4 kg">Up to 4 kg - 30€</option>
+                    <option value="11" data-service="Iron" data-price="50" data-weight="Up to 8 kg">Up to 8 kg - 50€</option>
+                    <option value="12" data-service="Iron" data-price="70" data-weight="Up to 12 kg">Up to 12 kg - 70€</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="d-grid gap-2 col-2 mx-auto mt-4" >
+              <%= f.button :submit, "Add to cart",
+                  class: "btn btn-primary",
+                  data: { bs_toggle: 'offcanvas',
+                          bs_target: '#offcanvasExample',
+                          bs_controls: 'offcanvasExample',
+                          select_item_target: "addItem",
+                          action: "click->select-item#add" } %>
+            </div>
+          <% end %>
+        </div>
+      <%# cards container end-div %>
+      </div>
+    </div>
+
+    <%# Main container end-div %>
+    </div>
   </div>
 </div>
