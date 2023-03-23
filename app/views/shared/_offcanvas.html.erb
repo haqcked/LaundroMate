@@ -9,13 +9,12 @@
         <h2>Cart show</h2>
         <div id="modal">
           <% @cart.line_items.each do |line_item| %>
-            <div class="card-order p-4">
+            <div class="card-order card p-4 mb-3">
               <p>Service: <strong><%= line_item.service.category %></strong></p>
               <p>Weight: <strong><%= line_item.service.name %></strong></p>
               <p>Price: <strong>$<%= line_item.service.price %></strong></p>
               <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
             </div>
-          <hr>
           <% end %>
         </div>
         <%= link_to "Add another service", services_path, class: "btn btn-primary" %>
@@ -40,7 +39,7 @@
 
           <%# date picker %>
 
-          <div class="card p-3">
+          <div class="card-order card p-3">
             <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
               <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
               <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
