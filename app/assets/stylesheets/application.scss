@@ -18,13 +18,20 @@
 @import "flatpickr/dist/themes/airbnb";
 @import "pages/shopping_cart";
 @import "pages/date_time";
+@import "pages/booking_show";
+
 
 
 body {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0;
 }
 
 footer {
+  display: flex;
   flex-shrink: 0;
+  margin-top: 400px;
+  margin-bottom: auto;
+  align-items: center;
 }
