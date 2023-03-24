@@ -34,6 +34,22 @@
                 </div>
               <hr>
             </div>
+
+            <div>
+            <h4>Add a Review</h4>
+            <%= simple_form_for Review.new do |f| %>
+              <div class="form-group">
+                <%= f.input :rating, label: "Rating", input_html: {min: 1, max: 5}, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.input :comment, label: "Comment", input_html: {rows: 5}, class: "form-control" %>
+              </div>
+              <%= f.hidden_field :booking_id, value: booking.id %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.button :submit, "Submit Review", class: "btn btn-primary" %>
+            <% end %>
+            </div>
+
           <% end %>
           <div>
             <h3>Grand total: $<%= @bookings.sum(&:total_price) %></h3>

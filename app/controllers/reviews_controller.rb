@@ -1,22 +1,15 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!
-
   def new
-    @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
     if @review.save
-      redirect_to @review.booking, notice: 'Review successfully created!'
+      redirect_to bookings_path, notice: 'Review successfully created!'
     else
-      redirect_to @review.booking, alert: 'Error creating review'
+      redirect_to bookings_path, alert: 'Error creating review'
     end
-  end
-
-  def edit
-    @review = Review.find(params[:id])
   end
 
   def update
