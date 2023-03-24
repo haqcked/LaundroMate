@@ -1,0 +1,14 @@
+<h1>I am Edit booking</h1>
+
+<div class="container p-4">
+    <h1>Pick your most convenient dates</h1>
+    <div class="col-6">
+  <div class="card p-4">
+      <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+        <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+        <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+        <%= f.submit 'Schedule your booking' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -33,6 +33,19 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    # @line_items = LineItem.find(params[:id])
+  end
+
+  def update
+    if @booking.update!(booking_params)
+      redirect_to @booking
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
