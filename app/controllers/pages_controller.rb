@@ -5,6 +5,10 @@ class PagesController < ApplicationController
   def home
   end
 
+  def index
+    @reviews = Review.highest_rated
+  end
+
   def profile
     @services = Service.all
   end
