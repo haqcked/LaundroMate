@@ -1,13 +1,12 @@
 <div class="offcanvas offcanvas-end m-3 rounded-4" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-      <h1 class="offcanvas-title ps-3" id="offcanvasExampleLabel"><i class="fa-solid fa-cart-shopping"></i></h1>
-      <%= turbo_frame_tag @cart do %>
-      <h3 id="subtotal" class="pe-4">Sub Total: <%= @cart.sub_total %>€</h3>
-      <% end %>
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">My cart</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
 
     <div class="container p-2">
+        <h2>Cart show</h2>
         <div id="modal">
           <% @cart.line_items.each do |line_item| %>
             <div class="card-order card p-4 mb-3">
@@ -36,7 +35,7 @@
         <hr>
         <%= turbo_frame_tag @cart do %>
         <h3 id="subtotal">Sub total: <%= number_to_currency(@cart.sub_total) %></h3><br>
-        <% end %>
+<% end %>
 
           <%# date picker %>
 

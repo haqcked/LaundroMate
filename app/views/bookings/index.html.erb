@@ -30,6 +30,7 @@
                     <h3>Total cost: $<%= booking.total_price %></h3>
                     <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger text-white rounded-4",
                     data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
+                    <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-primary text-white rounded-4" %>
                   </div>
                 </div>
               <hr>
