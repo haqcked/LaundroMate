@@ -17,7 +17,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.total_price = 0
-    raise
     if @booking.save!
       @current_cart.line_items.each do |item|
         item.booking = @booking
