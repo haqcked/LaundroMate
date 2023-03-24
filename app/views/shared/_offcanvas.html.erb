@@ -1,21 +1,21 @@
 <div class="offcanvas offcanvas-end m-3 rounded-4" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">My cart</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <h1 class="offcanvas-title ps-3" id="offcanvasExampleLabel"><i class="fa-solid fa-cart-shopping"></i></h1>
+      <%= turbo_frame_tag @cart do %>
+      <h3 id="subtotal" class="pe-4">Sub Total: <%= @cart.sub_total %>€</h3>
+      <% end %>
   </div>
   <div class="offcanvas-body">
 
     <div class="container p-2">
-        <h2>Cart show</h2>
         <div id="modal">
           <% @cart.line_items.each do |line_item| %>
-            <div class="card-order p-4">
+            <div class="card-order card p-4 mb-3">
               <p>Service: <strong><%= line_item.service.category %></strong></p>
               <p>Weight: <strong><%= line_item.service.name %></strong></p>
               <p>Price: <strong>$<%= line_item.service.price %></strong></p>
               <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
             </div>
-          <hr>
           <% end %>
         </div>
         <%= link_to "Add another service", services_path, class: "btn btn-primary" %>
@@ -36,13 +36,15 @@
         <hr>
         <%= turbo_frame_tag @cart do %>
         <h3 id="subtotal">Sub total: <%= number_to_currency(@cart.sub_total) %></h3><br>
-<% end %>
+        <% end %>
 
           <%# date picker %>
+
           <div class="card p-3 rounded-4">
             <div class="text-center">
               <h3>Pick your most convenient dates</h3>
             </div>
+          <div class="card-order card p-3">
             <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
               <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
               <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>

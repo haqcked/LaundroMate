@@ -21,7 +21,6 @@ class BookingsController < ApplicationController
       @current_cart.line_items.each do |item|
         item.booking = @booking
         @booking.total_price += item.service.price
-        # raise
         item.cart_id = nil
         item.save!
       end
