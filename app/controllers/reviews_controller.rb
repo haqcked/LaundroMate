@@ -12,21 +12,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def update
-    @review = Review.find(params[:id])
-    if @review.update(review_params)
-      redirect_to @review.booking, notice: 'Review succesfully updated!'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-    redirect_to @review.booking, notice: 'Review succesfully deleted!'
-  end
-
   private
 
   def review_params

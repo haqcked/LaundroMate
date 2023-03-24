@@ -3,10 +3,8 @@ class PagesController < ApplicationController
   before_action :set_user, only: [:home, :profile, :edit, :update, :destroy]
 
   def home
-  end
-
-  def index
-    @reviews = Review.highest_rated
+    @reviews = Review.highest_rated(5)
+    render 'home'
   end
 
   def profile
