@@ -1,1 +1,50 @@
-<p>booking summary</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card rounded-4 my-5">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h3 class="bookings-greeting"><%= current_user.first_name.capitalize %>'s Booking Summary</h3>
+          <h3><% pluralize(current_user.bookings.count, "") %></h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card rounded-4 px-4 my-5">
+        <h3 class="h8 py-3 text-center">Payment Details</h3>
+        <div class="row gx-3">
+          <div class="col-12">
+              <div class="d-flex flex-column">
+                  <p class="text mb-1">Person Name</p>
+                  <input class="form-control mb-3" type="text" placeholder="Name" value="Barry Allen">
+              </div>
+          </div>
+          <div class="col-12">
+              <div class="d-flex flex-column">
+                  <p class="text mb-1">Card Number</p>
+                  <input class="form-control mb-3" type="text" placeholder="1234 5678 435678">
+              </div>
+          </div>
+          <div class="col-6">
+              <div class="d-flex flex-column">
+                  <p class="text mb-1">Expiry</p>
+                  <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+              </div>
+          </div>
+          <div class="col-6">
+              <div class="d-flex flex-column">
+                  <p class="text mb-1">CVV/CVC</p>
+                  <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+              </div>
+          </div>
+          <div class="col-12">
+              <div class="btn btn-info mb-3">
+                  <span class="ps-3">Pay $243</span>
+                  <span class="fas fa-arrow-right"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
