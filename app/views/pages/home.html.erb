@@ -69,7 +69,18 @@
       <div class="col">
         <h3>Leave laundry day up to us!</h3>
 
-        <h2>See What Our Customers Have To Say</h2>
+        <div class="highest-rated-reviews">
+          <h2>Read what our customers have to say!</h2>
+          <ul>
+            <% @reviews.each do |review| %>
+              <li>
+                <div>
+                  <%= review.user.nickname.capitalize %>⎜<%= review.rating %>/5 stars - "<%= review.comment %>"
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
 
       </div>
       <div class="col">

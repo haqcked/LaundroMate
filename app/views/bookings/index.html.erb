@@ -36,7 +36,7 @@
             </div>
 
             <div>
-            <h4>Add a Review</h4>
+            <h4>Leave a Review -</h4>
             <%= simple_form_for Review.new do |f| %>
               <div class="form-group">
                 <%= f.input :rating, label: "Rating", input_html: {min: 1, max: 5}, class: "form-control" %>
@@ -51,6 +51,8 @@
             </div>
 
           <% end %>
+
+          <hr>
           <div>
             <h3>Grand total: $<%= @bookings.sum(&:total_price) %></h3>
           </div>
