@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <div class="card rounded-4 my-5">
-        <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="card-header text-center">
           <h3 class="bookings-greeting center"><%= current_user.first_name.capitalize %>'s Booking Summary</h3>
         </div>
           <div class="card-body">
@@ -10,16 +10,16 @@
               <div class="col py-4">
                   <div class="row dates_details">
                     <div class="col">
-                      <h4>Customer: <%= @booking.user.nickname.capitalize %></h4>
-                      <p>Pickup date: <%= @booking.pickup_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
-                      <p>Delivery date: <%= @booking.delivery_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
+                      <p><strong>Pickup date:</strong> <%= @booking.pickup_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
+                      <p><strong>Delivery date:</strong> <%= @booking.delivery_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
+                      <p><strong>Services:</strong></p>
+                      <p><strong>Status:</strong><%= @booking.status %></p>
                     </div>
                     <div class="col">
                       <p>Want to revise your booking dates?</p>
-                      <%= link_to "Edit Date", edit_booking_path(@booking), class: "btn btn-primary text-white rounded-4" %>
+                      <%= link_to "Edit Date", edit_booking_path(@booking), class: "btn btn-success text-white rounded-4" %>
                     </div>
                   </div>
-                    <p>Services: </p>
 
                     <ul>
                       <% @booking.line_items.each do |item| %>
@@ -27,19 +27,12 @@
                         </li>
                       <% end %>
                     </ul>
-                    <p>Status: <%= @booking.status %></p>
-                    <h3>Total cost: $<%= @booking.total_price %></h3>
-
-              </div>
-
-
-                    <div>
-                      <p>Not totally satisfied with your booking?</P>
-                      <%= link_to "Redo Booking", services_path(@booking), class: "btn btn-danger text-white rounded-4" %>
-                    </div>
-
-
-              <hr>
+                    <h3 class="text-center">Total cost: $<%= @booking.total_price %></h3>
+                  </div>
+                <div>
+                  <p>Not totally satisfied with your booking?</P>
+                  <%= link_to "Redo Booking", redo_path(id: @booking.id), class: "btn btn-danger text-white rounded-4" %>
+                </div>
             </div>
 
         </div>
@@ -76,7 +69,7 @@
           </div>
           <div class="col-12">
               <div class="btn btn-info mb-3">
-                  <span class="ps-3"><%= @booking.total_price %></span>
+                  <%= link_to "@booking.total_price", bookings_path(@booking), class: "ps-3" %>
                   <span class="fas fa-arrow-right"></span>
               </div>
             </div>
