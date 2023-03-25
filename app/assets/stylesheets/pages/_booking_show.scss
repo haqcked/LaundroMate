@@ -62,7 +62,7 @@ p {
     transition: transform 0.2s ease-in;
 }
 
-.form-control {
+.form-control-payment {
     color: $body-color;
     background-color: $body-bg;
     border: 2px solid transparent;
@@ -71,8 +71,8 @@ p {
     vertical-align: middle;
 }
 
-.form-control:focus {
-    color: $primary;
+.form-control-payment:focus {
+    color: $body-color;
     background-color: $body-bg;
     border: 2px solid $body-color;
     box-shadow: none;

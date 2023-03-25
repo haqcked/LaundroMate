@@ -52,6 +52,12 @@ class BookingsController < ApplicationController
     redirect_to bookings_path, status: :see_other
   end
 
+  def redo
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to services_path, status: :see_other
+  end
+
   private
 
   def booking_params
