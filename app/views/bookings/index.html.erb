@@ -13,8 +13,8 @@
               <div class="col py-4">
                   <div class="dates_details">
                     <h4>Customer: <%= booking.user.nickname.capitalize %></h4>
-                    <p>Pickup date: <%= booking.pickup_date %></p>
-                    <p>Delivery date: <%= booking.delivery_date %></p>
+                    <p>Pickup date: <%= booking.pickup_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
+                    <p>Delivery date: <%= booking.delivery_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
                     <p>Services: </p>
                     <ul>
                       <% booking.line_items.each do |item| %>
