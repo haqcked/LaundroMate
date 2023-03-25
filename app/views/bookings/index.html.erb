@@ -28,9 +28,12 @@
                     <p> <strong>Status: </strong><%= booking.status.upcase %></p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                       <% if booking.status != "confirmed" %>
+                        <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-primary text-white rounded-4" %>
                         <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger text-white rounded-4 col-6", data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
                       <% end %>
+                      <%= link_to "Booking Summary", booking_path(booking), class: "btn btn-primary text-white rounded-4" %>
                     </div>
+
                   </div>
                   <hr>
                 </div>

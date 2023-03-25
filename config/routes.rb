@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :services, only: [:index]
 
   resources :bookings
+  get "/redo", to: "bookings#redo", as: :redo
 
   resources :reviews, only: [:new, :create, :edit, :update, :destroy]
 

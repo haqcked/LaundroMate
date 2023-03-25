@@ -21,7 +21,7 @@ export default class extends Controller {
     const service = serviceOption.getAttribute("data-service");
     const weight = serviceOption.getAttribute("data-weight");
     const formData = new FormData(currentForm);
-
+    console.log(url)
     fetch(url, {
       method: method,
       body: formData,
