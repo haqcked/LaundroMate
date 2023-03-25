@@ -7,6 +7,6 @@ class Booking < ApplicationRecord
   # validates :delivery_date, presence: true
   # validates :total_price, presence: true
 
-  enum status: { pending: 0, processing_payment: 1, confirmed: 2, cancelled: 3, review: 4 }
+  enum status: { pending: 0, confirmed: 1, completed: 2, cancelled: 3, review: 4 }
 
 end

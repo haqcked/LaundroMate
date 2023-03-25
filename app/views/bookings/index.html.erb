@@ -30,13 +30,14 @@
                     <h3>Total cost: $<%= booking.total_price %></h3>
                     <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger text-white rounded-4",
                     data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
+                    <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-primary text-white rounded-4" %>
                   </div>
                 </div>
               <hr>
             </div>
 
             <div>
-            <h4>Add a Review</h4>
+            <h4>Leave a Review -</h4>
             <%= simple_form_for Review.new do |f| %>
               <div class="form-group">
                 <%= f.input :rating, label: "Rating", input_html: {min: 1, max: 5}, class: "form-control" %>
@@ -51,6 +52,8 @@
             </div>
 
           <% end %>
+
+          <hr>
           <div>
             <h3>Grand total: $<%= @bookings.sum(&:total_price) %></h3>
           </div>

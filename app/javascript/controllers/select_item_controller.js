@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["addItem", "form"];
 
   connect() {
-    console.log(this.addItemTarget);
 
   }
 
@@ -27,9 +26,8 @@ export default class extends Controller {
       method: method,
       body: formData,
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then((response) => {
+        // console.log(data);
         const modal = document.getElementById("modal");
         let subtotal = 0;
         for (let i = 0; i < modal.children.length; i++) {
@@ -46,7 +44,7 @@ export default class extends Controller {
         modal.insertAdjacentHTML(
           "beforeend",
           "<div class='card-order card p-4 mb-3'>" +
-            "<p>Service: <strong> " + `${service}` + "</strong></p>" +
+            "<p>Service: <strong>" + `${service}` + "</strong></p>" +
             "<p>Weight: <strong>" + `${weight}` + "</strong></p>" +
             "<p>Price: <strong>$" + `${price}` + "</strong></p>" +
             "<form class='button_to' method='post' action='/line_items/31'><input type='hidden' name='_method' value='delete' autocomplete='off'><button class='btn btn-danger' type='submit'>Remove item</button><input type='hidden'></form>" +
