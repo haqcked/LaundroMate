@@ -12,6 +12,7 @@
                     <div class="col">
                       <p><strong>Pickup date:</strong> <%= @booking.pickup_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
                       <p><strong>Delivery date:</strong> <%= @booking.delivery_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
+                    
                       <p><strong>Services:</strong></p>
                       <p><strong>Status:</strong><%= @booking.status %></p>
                     </div>
@@ -68,11 +69,11 @@
               </div>
           </div>
           <div class="col-12">
-              <div class="btn btn-info mb-3">
-                  <%= link_to "@booking.total_price", bookings_path(@booking), class: "ps-3" %>
-                  <span class="fas fa-arrow-right"></span>
-              </div>
-            </div>
+            <button class="btn btn-info text-white mb-3">
+              <%= link_to "#{@booking.total_price}", bookings_path(@booking), class: "ps-3 text-white" %>
+              <span class="fas fa-arrow-right"></span>
+            </button>
+          </div>
           </div>
         </div>
       </div>
