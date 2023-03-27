@@ -1,5 +1,13 @@
 // Specific CSS for your home-page
 
+.hr-home {
+  border-top: 5px solid $primary;
+  width: 15%;
+  margin: auto;
+  margin-top: 140px;
+  margin-bottom: 140px;
+}
+
 .about h3 {
   font-family: $headers-font;
   color: #342d2d;
@@ -16,15 +24,19 @@ h3 {
   padding-left: 15px;
 }
 
+// .about {
+//   background-color: $success;
+// }
+
 .about .fa-solid {
   color: $success;
 }
 
 .about p {
   font-family: $body-font;
-  color: #7f7f7f;
-  font-size: 20px;
-  line-height: 45px;
+  color: $body-color;
+  font-size: 22px;
+  line-height: 40px;
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -47,3 +59,65 @@ img {
   background-color: $success;
   color: white;
 }
+
+.steps-container {
+  background-color: $success;
+  opacity: .8;
+  height: 550px;
+}
+
+.steps-title h1{
+  color: white;
+  font-size: 65px;
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-top: 5px solid $danger;
+  border-bottom: 5px solid $danger;
+}
+
+.steps {
+  position: relative;
+  background-color: $success;
+  text-align: center;
+  opacity: .8;
+  height: 150px;
+}
+
+.steps p {
+  text-align: left;
+  border-right: 5px solid $danger;
+  color: white;
+  line-height: 35px;
+  padding: 0 20px;
+  font-weight: bold;
+  padding-top: 20px;
+  font-size: 24px;
+}
+
+.steps-6 p {
+  text-align: left;
+  border-right: none;
+  color: white;
+  line-height: 35px;
+  padding: 0 20px;
+  font-weight: bold;
+  padding-top: 20px;
+  font-size: 24px;
+
+}
+
+.num-icon{
+  position: absolute;
+  text-align: center;
+  font-weight: 900;
+  opacity: 0.15;
+  font-size: 170px;
+  top: 10%;
+  right: 15%;
+}
+
+// .guarantee {
+//   align-items: center;
+// }
