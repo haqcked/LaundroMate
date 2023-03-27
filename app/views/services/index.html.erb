@@ -12,7 +12,7 @@
 
         <%# Wash Dry FOLD =============================================== %>
         <div class="card-index wash-dry-fold col-12 col-md-3 py-4 rounded-4 mb-3">
-          <%= simple_form_for @line_item, url: line_items_create_path, data: { select_item_target: "form" } do |f| %>
+          <%= simple_form_for @line_item, data: { select_item_target: "form" } do |f| %>
             <div class="card-header">
               <h3><%= @wash_dry_fold_services.first.category %></h3>
             </div>

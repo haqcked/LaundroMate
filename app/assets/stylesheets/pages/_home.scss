@@ -23,8 +23,8 @@ h3 {
 .about p {
   font-family: $body-font;
   color: #7f7f7f;
-  font-size: 16px;
-  line-height: 35px;
+  font-size: 20px;
+  line-height: 45px;
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -41,4 +41,9 @@ img {
   height: 100%;
   border-radius: 15%;
   padding-right: 15px;
+}
+
+.promise .one {
+  background-color: $success;
+  color: white;
 }
