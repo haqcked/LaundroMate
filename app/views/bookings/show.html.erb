@@ -38,10 +38,19 @@
           <h4 class="fw-bold"><%= @booking.total_price %>.00€</h4>
         </div>
       </div>
-        <div class="card">
-          <h1>MAPBOX</h1>
-
+      <%# MAPBOX in booking details %>
+      <div class="card rounded-4">
+        <h1>MAPBOX</h1>
+        <p>Pickup Address: <%= @booking.user.address %></p>
+        <div class="comtainer mt-4">
+          <div style="width: 100%; height: 500px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
+        </div>
+      </div>
+      <%# end of MAPBOX in booking details %>
     </div>
     <%# end of booking details %>
 
