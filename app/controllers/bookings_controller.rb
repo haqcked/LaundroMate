@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
       }
     end
 
-    paris_data = Geocoder.search("esentai mall, almaty").first.data
+    paris_data = Geocoder.search("le wagon, paris").first.data
 
     @markers << {
       lat: paris_data["lat"],
