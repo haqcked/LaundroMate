@@ -75,7 +75,7 @@
             <% @reviews.each do |review| %>
               <li>
                 <div>
-                  <%= review.user.nickname.capitalize %>⎜<%= review.rating %>/5 stars - "<%= review.comment %>"
+                  <%= review.user.nickname.capitalize %>⎜<%= review.rating %>/5 stars - "<%= review.comment %> - Booking ID: <%= review.booking_id %> "
                 </div>
               </li>
             <% end %>

@@ -39,7 +39,8 @@ class BookingsController < ApplicationController
   end
 
   def update
-    if @booking.update!(booking_params)
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
       redirect_to @booking
     else
       render :show, status: :unprocessable_entity
