@@ -6,8 +6,8 @@
   <div class="card p-4">
       <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
         <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-        <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-        <%= f.submit 'Schedule your booking' %>
+        <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime", action: "click->flatpickr#setend" } } %>
+        <%= f.submit 'Schedule your booking', class: "btn btn-primary text-white" %>
       <% end %>
     </div>
   </div>
