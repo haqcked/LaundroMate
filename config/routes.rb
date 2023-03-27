@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get 'addresses/edit'
+  put 'addresses/edit', to: 'addresses#update'
   get 'carts/show'
   get 'carts/destroy'
   get 'line_items/create'

@@ -7,6 +7,21 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @markers = [@booking.user].map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window_html: render_to_string(partial: "bookings/info_window", locals: { user: user, address: user.address })
+      }
+    end
+
+    paris_data = Geocoder.search("le wagon, paris").first.data
+
+    @markers << {
+      lat: paris_data["lat"],
+      lng: paris_data["lon"],
+      info_window_html: render_to_string(partial: "bookings/headquarter")
+    }
   end
 
   def new
