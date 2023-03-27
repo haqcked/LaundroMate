@@ -1,6 +1,5 @@
 <%= content_for(:navbar_class, "navbar-home") %>
 
-<body>
   <div class="banner">
     <div class="banner-content text-center">
       <h1>Spend your precious time with your <span class="auto-type"></span>
@@ -16,7 +15,9 @@
       })
       </script>
       <%# JS trial end %>
+
       <p>Let Laundromate take the load off your laundry day!</p>
+
 
       <%= link_to services_path do %>
         <button class="c-button c-button--gooey"> Book now!
@@ -39,38 +40,88 @@
     </div>
   </div>
 
+   <div class="hr-home">
+  </div>
 
-  <div class="about container pb-4">
-    <%# <h3>How it Works</h3> %>
+  </div>
+  <div class="about container-fluid px-5">
+    <%# <h1 class="text-center pt-5">Our promise to you</h1> %>
     <div class="row align-items-start">
-      <div class="col text-center pt-5">
-        <i class="fa-solid fa-jug-detergent fa-3x fa-fade py-5"></i>
+      <div class="col text-center pt-3">
+        <i class="fa-solid fa-jug-detergent fa-5x fa-fade pb-5"></i>
         <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        We use eco-friendly gentle detergents without harmful chemicals formulated to keep your clothes fresh and clean so that your skin can stay happy and healthy.
         </p>
       </div>
-      <div class="col text-center pt-5">
-        <i class="fa-solid fa-calendar-days fa-3x fa-fade py-5"></i>
+      <div class="col text-center pt-3">
+        <i class="fa-solid fa-calendar-days fa-5x fa-fade pb-5"></i>
         <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        Choose the dates that work for you. Our LaundroMate employees work hard to ensure your laundry is collected and delivered back to you in your selected time.
         </p>
       </div>
-      <div class="col text-center pt-5">
-        <i class="fa-solid fa-soap fa-3x fa-fade py-5"></i>
+      <div class="col text-center pt-3">
+        <i class="fa-solid fa-shirt fa-5x fa-fade pb-5"></i>
         <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+        Rest assured that your clothes are in good hands. Each LaundroMate employee is well-trained and knowledgeable about handle every type of fabric.
+
         </p>
       </div>
     </div>
   </div>
 
-  <div class="about p-5">
-    <div class="row">
-      <div class="col">
-        <h3>Leave laundry day up to us!</h3>
+  <div class="hr-home">
+  </div>
 
+  <div class="steps-container container-fluid py-5">
+    <div class="row d-flex align-items-start steps-title py-5 pl-1">
+      <h1 class="pb-4">How it Works</h1>
+        <div class="col steps py-3">
+          <i class="fa-solid fa-1 num-icon"></i>
+          <p>Choose your desired services.</p>
+        </div>
+        <div class="col steps py-3">
+          <i class="fa-solid fa-2 num-icon"></i>
+          <p>Select your preferred dates and time.</p>
+        </div>
+        <div class="col steps py-3">
+          <i class="fa-solid fa-3 num-icon"></i>
+          <p>Submit your address for laundry to be collected.</p>
+        </div>
+        <div class="col steps py-3">
+          <i class="fa-solid fa-4 num-icon"></i>
+          <p>Laundromate collects yours clothes.</p>
+        </div>
+        <div class="col steps py-3">
+          <i class="fa-solid fa-5 num-icon"></i>
+          <p>Take a load off, your laundry is in good hands.</p>
+        </div>
+        <div class="col steps steps-6 py-3">
+          <i class="fa-solid fa-6 num-icon"></i>
+          <p>Receive your laundry sparkling clean.</p>
+        </div>
+    </div>
+  </div>
+
+
+
+  <div class="hr-home">
+  </div>
+
+   <%# <div class="container-fluid">
+    <div class="washing-machine">
+      <img src=".../app/assets/images/laundry-machine.png" alt="washing machines">
+    </div>
+
+  <h5>We use the best washing machines the world has to offer with uncompromised technological performance. Your clothes are returned sparkling clean (sparkle)</h5>
+    </div> %>
+
+
+  <div class="reviews container-fluid p-5">
+    <div class="row align-items-center">
+      <div class="col">
+        <h2>Leave laundry day up to us!</h2>
+        <h4>Read what our customers have to say!</h4>
         <div class="highest-rated-reviews">
-          <h2>Read what our customers have to say!</h2>
           <ul>
             <% @reviews.each do |review| %>
               <li>
@@ -88,4 +139,13 @@
       </div>
     </div>
   </div>
-</body>
+
+   <div class="hr-home">
+  </div>
+
+  <%# <div class="container text-center pb-5 mb-5">
+    <div class="guarantee">
+      <img src="https://treekingsfl.com/wp-content/uploads/2017/05/100-Customer-Satisfaction-Guaranteed.png" alt="guarantee"
+      style="width:50%; height:25%; opacity:0.4;">
+    </div>
+  </div> %>
