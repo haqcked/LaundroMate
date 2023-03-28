@@ -58,6 +58,7 @@ gem "cloudinary"
 gem "geocoder"
 gem "rails_admin", "3.0"
 gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
+gem 'mapbox-sdk'
 
 
 group :development, :test do
