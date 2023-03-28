@@ -12,3 +12,27 @@ footer {
   // position: sticky;
   bottom: 0;
 }
+
+.contact {
+  padding-left: 40px;
+  padding-right: 0;
+}
+
+.final-footer-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright {
+  width: 7%;
+  height: 3%;
+  margin-left: 10px;
+}
+
+.useful-links {
+  // padding-left: 70px;
+  padding-right: 0;
+  margin-right: 0;
+  margin-left: 160px;
+}
