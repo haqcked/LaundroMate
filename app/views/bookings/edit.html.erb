@@ -1,14 +1,20 @@
-<h1>I am Edit booking</h1>
 
-<div class="container p-4">
-    <h1>Pick your most convenient dates</h1>
-    <div class="col-6">
-  <div class="card p-4">
-      <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
-        <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-        <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime", action: "click->flatpickr#setend" } } %>
-        <%= f.submit 'Schedule your booking', class: "btn btn-primary text-white" %>
-      <% end %>
+
+<div class="container p-5">
+  <div class="row">
+    <div class="col">
+      <div class="card rounded-4">
+          <div class="card-header text-center px-3 pt-4 pb-3">
+            <h1>Edit Booking Dates</h1>
+          </div>
+            <div class="card-body">
+              <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+              <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+              <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime", action: "click->flatpickr#setend" } } %>
+              <%= f.submit 'Edit Dates', class: "btn btn-primary text-white my-3 py-2 px-4" %>
+              <% end %>
+            </div>
+      </div>
     </div>
   </div>
 </div>
