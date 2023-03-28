@@ -1,81 +1,103 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="card rounded-4 my-5">
+
+<div class="container p-4">
+  <div class="row justify-content-center">
+    <%# start of booking details %>
+    <div class="col-lg-6">
+      <div class="card rounded-4 mb-2">
         <div class="card-header text-center">
-          <h3 class="bookings-greeting center"><%= current_user.first_name.capitalize %>'s Booking Summary</h3>
+          <h3><%= current_user.first_name.capitalize %>'s Booking Summary</h3>
         </div>
-          <div class="card-body">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col py-4">
-                  <div class="row dates_details">
-                    <div class="col">
-                      <p><strong>Pickup date:</strong> <%= @booking.pickup_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
-                      <p><strong>Delivery date:</strong> <%= @booking.delivery_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
-                    
-                      <p><strong>Services:</strong></p>
-                      <p><strong>Status:</strong><%= @booking.status %></p>
-                    </div>
-                    <div class="col">
-                      <p>Want to revise your booking dates?</p>
-                      <%= link_to "Edit Date", edit_booking_path(@booking), class: "btn btn-success text-white rounded-4" %>
-                    </div>
-                  </div>
-
-                    <ul>
-                      <% @booking.line_items.each do |item| %>
-                        <li><%= item.service.category %> - <%= item.service.name %> - $<%= item.service.price %>
-                        </li>
-                      <% end %>
-                    </ul>
-                    <h3 class="text-center">Total cost: $<%= @booking.total_price %></h3>
-                  </div>
-                <div>
-                  <p>Not totally satisfied with your booking?</P>
-                  <%= link_to "Redo Booking", redo_path(id: @booking.id), class: "btn btn-danger text-white rounded-4" %>
-                </div>
+        <div class="card-body d-flex">
+          <%# details %>
+          <div class="col-8 ps-4">
+            <p><strong>Pickup date: <br>
+            </strong> <%= @booking.pickup_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
+            <p><strong>Delivery date: <br>
+            </strong> <%= @booking.delivery_date.strftime("%A, %d %b %Y %l:%M %p") %></p>
+            <p><strong>Services Booked:</strong></p>
+            <div class="services">
+                <ul>
+                  <% @booking.line_items.each do |item| %>
+                    <li><%= item.service.category %> - <%= item.service.name %> - <%= item.service.price %>€
+                    </li>
+                  <% end %>
+                </ul>
             </div>
-
+          </div>
+          <%# buttons + cost %>
+          <div class="col-4 d-flex flex-column justify-content-around align-items-center">
+            <% if @booking.status == "pending" %>
+              <%= link_to "Edit Date", edit_booking_path(@booking), class: "btn btn-success text-white rounded-4 col-10" %>
+              <%= link_to "Redo Booking", redo_path(id: @booking.id), class: "btn btn-danger btn-gradient text-white rounded-4 col-10" %>
+            <% end %>
+          </div>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between p-4">
+          <h4 class="fw-bold">Total Cost:</h4>
+          <h4 class="fw-bold"><%= @booking.total_price %>.00€</h4>
         </div>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="card rounded-4 px-4 my-5">
-        <h3 class="h8 py-3 text-center">Payment Details</h3>
-        <div class="row gx-3">
-          <div class="col-12">
-              <div class="d-flex flex-column">
-                  <p class="text mb-1">Person Name</p>
-                  <input class="form-control-payment mb-3" type="text" placeholder="Name" value="Barry Allen">
-              </div>
+      <%# MAPBOX in booking details %>
+      <div class="card rounded-4 my-4">
+        <div class="map-info p-4">
+          <h4>Verify your address:</h4>
+          <div class="d-flex justify-content-between pe-4">
+            <p>Pickup Address: <%= @booking.user.address %></p>
+            <%= link_to "Edit Address", addresses_edit_path(booking_id: @booking.id), class: "btn btn-success text-white rounded-4" %>
           </div>
-          <div class="col-12">
+        </div>
+        <div class="comtainer">
+          <div style="width: 100%; height: 500px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+        </div>
+      </div>
+      <%# end of MAPBOX in booking details %>
+    </div>
+    <%# end of booking details %>
+
+    <%# start of payment details %>
+    <div class="col-lg-6">
+      <div class="sticky-top">
+        <div class="card rounded-4 px-4">
+          <h3 class="h8 py-3 text-center">Payment Details</h3>
+          <div class="row gx-3">
+            <div class="col-12">
+              <div class="d-flex flex-column">
+                <p class="text mb-1">Complete Name</p>
+                <input class="form-control-payment mb-3 rounded-4" type="text" placeholder="Name" value="Barry Allen">
+              </div>
+            </div>
+            <div class="col-12">
               <div class="d-flex flex-column">
                   <p class="text mb-1">Card Number</p>
-                  <input class="form-control-payment mb-3" type="text" placeholder="1234 5678 435678">
+                  <input class="form-control-payment mb-3 rounded-4" type="text" placeholder="1234 5678 435678">
               </div>
-          </div>
-          <div class="col-6">
+            </div>
+            <div class="col-6">
               <div class="d-flex flex-column">
                   <p class="text mb-1">Expiry</p>
-                  <input class="form-control-payment mb-3" type="text" placeholder="MM/YYYY">
+                  <input class="form-control-payment mb-3 rounded-4" type="text" placeholder="MM/YYYY">
               </div>
-          </div>
-          <div class="col-6">
+            </div>
+            <div class="col-6">
               <div class="d-flex flex-column">
                   <p class="text mb-1">CVV/CVC</p>
-                  <input class="form-control-payment mb-3 pt-2 " type="password" placeholder="***">
+                  <input class="form-control-payment mb-3 pt-2 rounded-4" type="password" placeholder="***">
               </div>
-          </div>
-          <div class="col-12">
-            <button class="btn btn-info text-white mb-3">
-              <%= link_to "#{@booking.total_price}", bookings_path(@booking), class: "ps-3 text-white" %>
-              <span class="fas fa-arrow-right"></span>
-            </button>
-          </div>
+            </div>
+            <div class="col-12">
+              <div class="">
+                <%= link_to "BOOK NOW", bookings_path(@booking), class: "btn btn-info text-white mb-3 rounded-4" %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <%# end of payment details %>
   </div>
+</div>

@@ -6,8 +6,25 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @booking = Booking.find(params[:id])
+    @markers = [@booking.user].map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window_html: render_to_string(partial: "bookings/info_window", locals: { user: user, address: user.address })
+      }
+    end
+
+    paris_data = Geocoder.search("le wagon, paris").first.data
+
+    @markers << {
+      lat: paris_data["lat"],
+      lng: paris_data["lon"],
+      info_window_html: render_to_string(partial: "bookings/headquarter")
+    }
   end
+
 
   def new
     @booking = Booking.new
@@ -34,13 +51,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @booking = Booking.find(params[:id])
     # @line_items = LineItem.find(params[:id])
   end
 
   def update
     @booking = Booking.find(params[:id])
-    if @booking.update!(booking_params)
+    if @booking.update(booking_params)
       redirect_to @booking
     else
       render :show, status: :unprocessable_entity
@@ -65,4 +83,5 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:delivery_date, :pickup_date, :total_price)
   end
+
 end

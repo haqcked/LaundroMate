@@ -58,6 +58,8 @@ gem "cloudinary"
 gem "geocoder"
 gem "rails_admin", "3.0"
 gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
+gem 'mapbox-sdk'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

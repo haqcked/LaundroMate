@@ -2,7 +2,7 @@
 
   <div class="banner">
     <div class="banner-content text-center">
-      <h1>Spend your precious time with your <span class="auto-type"></span>
+      <h1>Spend your precious time with your <span class="auto-type text-primary"></span>
       </h1>
       <%# JS trial start %>
       <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-   <div class="hr-home">
+  <div class="hr-home">
   </div>
 
   </div>
@@ -126,7 +126,7 @@
             <% @reviews.each do |review| %>
               <li>
                 <div>
-                  <%= review.user.nickname.capitalize %>⎜<%= review.rating %>/5 stars - "<%= review.comment %>"
+                  <%= review.user.nickname.capitalize %>⎜<%= review.rating %>/5 stars - "<%= review.comment %> - Booking ID: <%= review.booking_id %> "
                 </div>
               </li>
             <% end %>

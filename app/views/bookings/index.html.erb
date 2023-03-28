@@ -23,14 +23,16 @@
                       <% end %>
                     </ul>
                   </div>
-                  <div class="text-end d-flex flex-column justify-content-between">
-                    <h3>Booking Cost: <%= booking.total_price %>€</h3>
+                  <div class="d-flex flex-column justify-content-between">
+                    <h4>Booking Cost: <%= booking.total_price %>€</h4>
                     <p> <strong>Status: </strong><%= booking.status.upcase %></p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <% if booking.status != "confirmed" %>
-                        <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-primary text-white rounded-4" %>
-                        <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger text-white rounded-4 col-6", data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
-                      <% end %>
+                    <div class="d-flex flex-column justify-content-between">
+                      <div class="d-flex justify-content-between m-1">
+                        <% if booking.status != "confirmed" %>
+                          <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-primary text-white rounded-4 col-6" %>
+                          <%= link_to "Cancel", booking_path(booking), class: "btn btn-danger text-white rounded-4 col-6", data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"} %>
+                        <% end %>
+                      </div>
                       <%= link_to "Booking Summary", booking_path(booking), class: "btn btn-primary text-white rounded-4" %>
                     </div>
 
@@ -102,6 +104,7 @@
                     <%= f.button :submit, "Submit Review", class: "btn btn-primary" %>
                   <% end %>
                 </div>
+
                     <hr>
               <% end %>
             <% end %>
