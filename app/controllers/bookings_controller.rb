@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @booking = Booking.find(params[:id])
     @markers = [@booking.user].map do |user|
       {
@@ -23,6 +24,7 @@ class BookingsController < ApplicationController
       info_window_html: render_to_string(partial: "bookings/headquarter")
     }
   end
+
 
   def new
     @booking = Booking.new
@@ -49,6 +51,7 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @booking = Booking.find(params[:id])
     # @line_items = LineItem.find(params[:id])
   end
@@ -80,4 +83,5 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:delivery_date, :pickup_date, :total_price)
   end
+
 end

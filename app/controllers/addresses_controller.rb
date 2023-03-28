@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
   def edit
+    @user = current_user
     @booking = Booking.find(params[:booking_id])
   end
 

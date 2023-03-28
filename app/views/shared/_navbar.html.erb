@@ -24,10 +24,10 @@
               <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Chat With Us", chatroom_path, class: "nav-link" %>
+              <%= link_to "Chat", chatroom_path, class: "nav-link" %>
             </li>
 
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown ps-4">
               <% if @user&.photo&.key.present? %>
                 <%= cl_image_tag @user.photo.key, :aspect_ratio=>"1:1", :gravity=>"auto", :radius=>"max", :width=>1000, :crop=>"fill", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% else %>
