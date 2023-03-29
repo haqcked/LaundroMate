@@ -1,7 +1,6 @@
 class LineItemsController < ApplicationController
 
   def create
-    # Find associated product and current cart
     chosen_service = Service.find(params[:line_item][:service_id])
     current_cart = @current_cart
 
@@ -11,9 +10,6 @@ class LineItemsController < ApplicationController
       @line_item.service = chosen_service
       @line_item.save
     end
-    # Save and redirect to cart show path
-    # this may be deleted and let STIMULUS handle the toggle for the off canvas
-    # redirect_to services_path
     render json: @line_item
   end
 
@@ -22,7 +18,6 @@ class LineItemsController < ApplicationController
   end
 
   def destroy
-    # raise
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     redirect_to services_path
