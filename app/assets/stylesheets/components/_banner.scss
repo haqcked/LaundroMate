@@ -30,9 +30,45 @@
 // services
 
 .banner-services {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1679676033/happy_dogo.png');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1679676033/happy_dogo.png');
   background-size: cover;
   background-position: center;
+}
+
+.banner-booking-index {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), image-url("mom-daughter-laundry.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .banner {
+    height: 70vh;
+  }
+
+  .banner-content {
+    width: 70%;
+  }
+
+  .banner-content h1 {
+    font-size: 30px;
+  }
+
+  .banner-content p {
+    font-size: 17px;
+  }
+
+  .c-button {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+
 }

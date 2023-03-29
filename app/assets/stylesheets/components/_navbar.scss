@@ -52,3 +52,12 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+@media only screen and (max-width: 600px) {
+  .navbar-lewagon .navbar-brand img {
+    width: 70px;
+    height: 30px;
+  }
+
+
+}

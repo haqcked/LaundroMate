@@ -31,3 +31,23 @@ footer {
   margin-right: 0;
   margin-left: 160px;
 }
+
+@media only screen and (max-width: 600px) {
+  footer {
+    text-align: center;
+  }
+
+  .contact {
+    padding: 0;
+    margin: 0;
+  }
+
+  form {
+    margin: 20px;
+  }
+
+  .useful-links {
+    padding: 0;
+    margin: 0;
+  }
+}

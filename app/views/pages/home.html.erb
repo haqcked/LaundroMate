@@ -107,21 +107,14 @@
   <div class="hr-home">
   </div>
 
-   <%# <div class="container-fluid">
-    <div class="washing-machine">
-      <img src=".../app/assets/images/laundry-machine.png" alt="washing machines">
-    </div>
-
-  <h5>We use the best washing machines the world has to offer with uncompromised technological performance. Your clothes are returned sparkling clean (sparkle)</h5>
-    </div> %>
 
 
   <div class="reviews container-fluid p-5">
-    <div class="row align-items-center">
-      <div class="col">
+    <div class="row d-flex align-items-center">
+      <div class="col-6 reviews-col reviews-title p-1">
         <h1>Leave laundry day up to us!</h1>
         <hr><br>
-        <div class="card rounded-4 container-fluid p-3">
+        <div class="card reviews-content rounded p-3">
         <h4>Read what our customers have to say!</h4><hr>
             <% @reviews.each do |review| %>
               <div class="row">
@@ -135,7 +128,7 @@
         </div>
       </div>
 
-      <div class="col">
+      <div class="col-6 reviews-col p-1">
       <img src="https://www.rd.com/wp-content/uploads/2021/09/GettyImages-1181334518-MLedit.jpg?resize=1536,1024" alt="Laundry Room">
       </div>
     </div>
