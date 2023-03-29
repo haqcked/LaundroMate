@@ -22,7 +22,6 @@ class LineItemsController < ApplicationController
   end
 
   def destroy
-    # raise
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     redirect_to services_path
