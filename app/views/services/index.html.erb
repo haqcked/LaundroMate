@@ -1,9 +1,6 @@
 <div class="banner-services">
   <div class="container p-4 mb-2">
     <h3 class="text-white">A list of our services</h3>
-    <div class="d-flex justify-content-center">
-      <%= render partial: 'shared/offcanvas' %>
-    </div>
 
     <%# CARD SET========================================================== %>
 
@@ -110,7 +107,12 @@
       <%# CARD SET container end-div %>
       </div>
     </div>
-    <%# Main container end-div %>
+      <%# OFFCANVAS 'see my cart' button %>
+      <div class="d-flex justify-content-center">
+        <%= render partial: 'shared/offcanvas' %>
+      </div>
+      <%# end of offcanvas %>
     </div>
+    <%# Main container end-div %>
   </div>
 </div>
