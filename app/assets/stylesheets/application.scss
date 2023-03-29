@@ -18,3 +18,16 @@
 @import "pages/shopping_cart";
 @import "pages/date_time";
 @import "pages/booking_show";
+
+
+
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
