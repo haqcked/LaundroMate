@@ -21,13 +21,14 @@ export default class extends Controller {
     const service = serviceOption.getAttribute("data-service");
     const weight = serviceOption.getAttribute("data-weight");
     const formData = new FormData(currentForm);
-    console.log(url)
+    if (service == null) {
+      return
+    }
     fetch(url, {
       method: method,
       body: formData,
     })
       .then((response) => {
-        // console.log(data);
         const modal = document.getElementById("modal");
         let subtotal = 0;
         for (let i = 0; i < modal.children.length; i++) {
@@ -41,16 +42,18 @@ export default class extends Controller {
         const id = "subtotal";
         const elementToUpdate = document.getElementById(id);
         subtotal += parseInt(price);
-        modal.insertAdjacentHTML(
-          "beforeend",
-          "<div class='card-order card p-4 mb-3'>" +
-            "<p>Service: <strong>" + `${service}` + "</strong></p>" +
-            "<p>Weight: <strong>" + `${weight}` + "</strong></p>" +
-            "<p>Price: <strong>$" + `${price}` + "</strong></p>" +
-            "<form class='button_to' method='post' action='/line_items/31'><input type='hidden' name='_method' value='delete' autocomplete='off'><button class='btn btn-danger' type='submit'>Remove item</button><input type='hidden'></form>" +
-            "</div>"
-        );
-        document.getElementById("subtotal").innerHTML = "Sub Total: $" + `${subtotal}`;
+        // if (service !== null) {
+          modal.insertAdjacentHTML(
+            "beforeend",
+            "<div class='card-order card p-4 mb-3'>" +
+              "<p>Service: <strong>" + `${service}` + "</strong></p>" +
+              "<p>Weight: <strong>" + `${weight}` + "</strong></p>" +
+              "<p>Price: <strong>$" + `${price}` + "</strong></p>" +
+              "<form class='button_to' method='post' action='/line_items/31'><input type='hidden' name='_method' value='delete' autocomplete='off'><button class='btn btn-danger' type='submit'>Remove item</button><input type='hidden'></form>" +
+              "</div>"
+          );
+          document.getElementById("subtotal").innerHTML = "Sub Total: $" + `${subtotal}`;
+        // }
       })
       .catch((error) => console.error(error));
   }

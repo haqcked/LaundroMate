@@ -22,10 +22,9 @@
                 <div class="mb-3 select optional line_item_service_id">
                   <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
-                    <option value="1" data-service="Wash, Dry and Fold" data-price="10" data-weight="Up to 2 kg">Up to 2 kg - 10€</option>
-                    <option value="2" data-service="Wash, Dry and Fold" data-price="25" data-weight="Up to 4 kg">Up to 4 kg - 25€</option>
-                    <option value="3" data-service="Wash, Dry and Fold" data-price="35" data-weight="Up to 8 kg">Up to 8 kg - 35€</option>
-                    <option value="4" data-service="Wash, Dry and Fold" data-price="50" data-weight="Up to 12 kg">Up to 12 kg - 50€</option>
+                    <% @wash_dry_fold_services.each_with_index do | service, index | %>
+                      <option value="<%= index + 1 %>" data-service="<%= service.category %>" data-price="<%= service.price %>" data-weight="<%= service.name %>"><%= "#{service.name} - #{service.price}€" %></option>
+                    <% end %>
                   </select>
                 </div>
               </div>
@@ -56,10 +55,9 @@
                 <div class="mb-3 select optional line_item_service_id">
                   <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
-                    <option value="5" data-service="Wash, Dry and Iron" data-price="25" data-weight="Up to 2 kg">Up to 2 kg - 25€</option>
-                    <option value="6" data-service="Wash, Dry and Iron" data-price="40" data-weight="Up to 4 kg">Up to 4 kg - 40€</option>
-                    <option value="7" data-service="Wash, Dry and Iron" data-price="70" data-weight="Up to 8 kg">Up to 8 kg - 70€</option>
-                    <option value="8" data-service="Wash, Dry and Iron" data-price="90" data-weight="Up to 12 kg">Up to 12 kg - 90€</option>
+                    <% @wash_dry_iron_services.each_with_index do | service, index | %>
+                      <option value="<%= @wash_dry_fold_services.count + index + 1 %>" data-service="<%= service.category %>" data-price="<%= service.price %>" data-weight="<%= service.name %>"><%= "#{service.name} - #{service.price}€" %></option>
+                    <% end %>
                   </select>
                 </div>
               </div>
@@ -85,16 +83,16 @@
               <div class="card-body px-3">
                 <p>Laundromate will take care of your ironing needs!</p>
 
-                <div class="form-group">
-                  <div class="mb-3 select optional line_item_service_id">
-                    <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
-                    <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
-                      <option value="9" data-service="Iron" data-price="13" data-weight="Up to 2 kg">Up to 2 kg - 13€</option>
-                      <option value="10" data-service="Iron" data-price="30" data-weight="Up to 4 kg">Up to 4 kg - 30€</option>
-                      <option value="11" data-service="Iron" data-price="50" data-weight="Up to 8 kg">Up to 8 kg - 50€</option>
-                      <option value="12" data-service="Iron" data-price="70" data-weight="Up to 12 kg">Up to 12 kg - 70€</option>
-                    </select>
-                  </div>
+
+              <div class="form-group">
+                <div class="mb-3 select optional line_item_service_id">
+                  <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
+                  <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
+                    <% @iron_services.each_with_index do | service, index | %>
+                      <option value="<%= @wash_dry_fold_services.count + @wash_dry_iron_services.count + index + 1 %>" data-service="<%= service.category %>" data-price="<%= service.price %>" data-weight="<%= service.name %>"><%= "#{service.name} - #{service.price}€" %></option>
+                    <% end %>
+                  </select>
+
                 </div>
               </div>
                   <div class="d-grid justify-content-md-end mt-5 me-4 " >

@@ -4,8 +4,8 @@
 
   <% @chatrooms.each do |chatroom| %>
     <%= chatroom.name %><br>
-    <%= chatroom.user.nickname %><br>
-    <%= link_to "Chat", "/chatrooms/#{chatroom.id}", class: "nav-link" %>
+    <%= chatroom.user.nickname.capitalize %><br>
+    <%= link_to "Chat", "/chatrooms/#{chatroom.id}", class: "nav-link" %><br><hr>
   <% end %>
 
 </div>

@@ -1,13 +1,18 @@
 
-<div class="container my-5 rounded-4 chatroom"
+<div class="container my-5 rounded-4 chatroom col-5"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
 >
-  <h1>Laundromate Chatroom -</h1>
+  <h1>LaundroMate Chatroom -</h1>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+      <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+        <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+          <%= render "messages/message", message: message %>
+        </div>
+      </div>
     <% end %>
   </div>
 
@@ -16,10 +21,10 @@
 %>
   <%= f.input :content,
     label: false,
-    placeholder: "Type your message here",
+    placeholder: "Type your message here...",
     wrapper_html: {class: "flex-grow-1"}
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
 <% end %>
 
-</div><br>
+</div>

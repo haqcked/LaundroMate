@@ -110,18 +110,21 @@
 
 
   <div class="reviews container-fluid p-5">
+
     <div class="row d-flex align-items-center">
       <div class="col-6 reviews-col reviews-title p-1">
         <h1>Leave laundry day up to us!</h1>
-        <hr><br>
-        <div class="card reviews-content rounded p-3">
+        ><br>
+        <div class="card reviews-content container-fluid rounded p-3">
         <h4>Read what our customers have to say!</h4><hr>
+
+
             <% @reviews.each do |review| %>
               <div class="row">
                 <div class="review">
                   <%= review.user.nickname.capitalize %> ⎜
                   <%= review.rating %>/5 <i class="fa-solid fa-star fa-beat fa-lg" style="color: #ffea00;"></i> -
-                  "<%= review.comment %>"
+                  "<%= review.comment %>"<hr>
                 </div>
               </div>
             <% end %>
