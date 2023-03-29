@@ -1,11 +1,9 @@
 <div class="banner-services">
   <div class="container p-4 mb-2">
-    <h3 class="text-white text-center">Our Services</h3>
-    <div class="d-flex justify-content-center">
+    <h2 class="text-white text-center">Our Services</h2>
+    <%# <div class="d-flex justify-content-center">
       <%= render partial: 'shared/offcanvas' %>
-    </div>
-    <h3 class="text-white">A list of our services</h3>
-
+    <%# </div> %>
 
     <%# CARD SET========================================================== %>
 
@@ -80,10 +78,11 @@
         <div class="card-index iron col-12 col-md-3 py-4 rounded-4 mb-3">
           <%= simple_form_for @line_item, data: { select_item_target: "form" } do |f| %>
             <div class="card-header">
-              <h3 class="a-hover"><%= @iron_services.first.category %></h3>
-            </div>
-            <div class="card-body px-3">
-              <p>Laundromate will take care of your ironing needs!</p>
+                <h3 class="a-hover"><%= @iron_services.first.category %></h3>
+              </div>
+              <div class="card-body px-3">
+                <p>Laundromate will take care of your ironing needs!</p>
+
 
               <div class="form-group">
                 <div class="mb-3 select optional line_item_service_id">
@@ -93,30 +92,31 @@
                       <option value="<%= @wash_dry_fold_services.count + @wash_dry_iron_services.count + index + 1 %>" data-service="<%= service.category %>" data-price="<%= service.price %>" data-weight="<%= service.name %>"><%= "#{service.name} - #{service.price}€" %></option>
                     <% end %>
                   </select>
+
                 </div>
               </div>
+                  <div class="d-grid justify-content-md-end mt-5 me-4 " >
+                    <%= f.button :submit, "Add to cart",
+                        class: "btn btn-primary",
+                        data: { bs_toggle: 'offcanvas',
+                                bs_target: '#offcanvasExample',
+                                bs_controls: 'offcanvasExample',
+                                select_item_target: "addItem",
+                                action: "click->select-item#add" } %>
+                  </div>
+              <% end %>
             </div>
-            <div class="d-grid justify-content-md-end mt-5 me-4 " >
-              <%= f.button :submit, "Add to cart",
-                  class: "btn btn-primary",
-                  data: { bs_toggle: 'offcanvas',
-                          bs_target: '#offcanvasExample',
-                          bs_controls: 'offcanvasExample',
-                          select_item_target: "addItem",
-                          action: "click->select-item#add" } %>
-            </div>
-          <% end %>
+            <%# CARD SET container end-div %>
+          </div>
         </div>
-      <%# CARD SET container end-div %>
+               <%# OFFCANVAS 'see my cart' button %>
+        <div class="d-flex justify-content-center">
+          <%= render partial: 'shared/offcanvas' %>
+        </div>
+        <%# end of offcanvas %>
+          <div class="text-white d-flex justify-content-center py-5"><h3>More exciting services coming soon!</h3></div>
       </div>
     </div>
-      <%# OFFCANVAS 'see my cart' button %>
-      <div class="d-flex justify-content-center">
-        <%= render partial: 'shared/offcanvas' %>
-      </div>
-      <%# end of offcanvas %>
-    </div>
-    <div class="text-white"><h1>More exciting services coming soon!</h1></div>
     <%# Main container end-div %>
   </div>
 </div>

@@ -118,8 +118,74 @@ img {
   right: 15%;
 }
 
-// .guarantee {
-//   align-items: center;
-// }
+@media only screen and (max-width: 600px) {
+  .hr-home {
+    margin-top: 85px;
+    margin-bottom: 65px;
+  }
 
-// review
+  .about .fa-solid {
+    color: $success;
+    font-size: 50px;
+    padding-top: 30px;
+  }
+
+  .about p {
+    font-size: 18px;
+  }
+
+  .steps-container {
+    height: 680px;
+    margin-top: 10px;
+  }
+
+  .steps-title h1{
+  font-size: 40px;
+  }
+
+
+  .steps p {
+    line-height: 25px;
+    padding: 0 10px;
+    // font-weight: bold;
+    padding-top: 10px;
+    font-size: 18px;
+  }
+
+  .steps-6 p {
+    border-right: 5px solid $danger;
+    line-height: 25px;
+    padding: 0 10px;
+    // font-weight: bold;
+    padding-top: 10px;
+    font-size: 18px;
+
+  }
+
+  .num-icon{
+    font-weight: 700;
+    font-size: 90px;
+  }
+
+  .reviews-col{
+    margin: auto;
+    width: 100%
+  }
+
+  .reviews-col h1 {
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  .reviews-content h4 {
+    font-size: 20px;
+  }
+
+  .reviews-col img {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 35px;
+    margin-bottom: -60px;
+  }
+}
