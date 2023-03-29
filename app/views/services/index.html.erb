@@ -1,6 +1,6 @@
 <div class="banner-services">
   <div class="container p-4 mb-2">
-    <h3 class="text-white">A list of our services</h3>
+    <h3 class="text-white text-center">Our Services</h3>
     <div class="d-flex justify-content-center">
       <%= render partial: 'shared/offcanvas' %>
     </div>
@@ -16,11 +16,11 @@
             <div class="card-header">
               <h3><%= @wash_dry_fold_services.first.category %></h3>
             </div>
-            <div class="card-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <div class="card-body px-3">
+              <p>Laundromate will wash, dry and fold your clothes.</p>
               <div class="form-group">
                 <div class="mb-3 select optional line_item_service_id">
-                  <label class="form-label select optional" for="line_item_service_id">Select a service:</label>
+                  <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
                     <option value="1" data-service="Wash, Dry and Fold" data-price="10" data-weight="Up to 2 kg">Up to 2 kg - 10€</option>
                     <option value="2" data-service="Wash, Dry and Fold" data-price="25" data-weight="Up to 4 kg">Up to 4 kg - 25€</option>
@@ -29,17 +29,18 @@
                   </select>
                 </div>
               </div>
+
+                <div class="d-grid justify-content-md-end mt-5 me-4" >
+                  <%= f.button :submit, "Add to cart",
+                      class: "btn btn-primary",
+                      data: { bs_toggle: 'offcanvas',
+                              bs_target: '#offcanvasExample',
+                              bs_controls: 'offcanvasExample',
+                              select_item_target: "addItem",
+                              action: "click->select-item#add" } %>
+                </div>
+              <% end %>
             </div>
-            <div class="d-grid justify-content-md-end mt-5 me-4" >
-              <%= f.button :submit, "Add to cart",
-                  class: "btn btn-primary",
-                  data: { bs_toggle: 'offcanvas',
-                          bs_target: '#offcanvasExample',
-                          bs_controls: 'offcanvasExample',
-                          select_item_target: "addItem",
-                          action: "click->select-item#add" } %>
-            </div>
-          <% end %>
         </div>
 
         <%# Wash Dry IRON =============================================== %>
@@ -48,12 +49,12 @@
             <div class="card-header">
               <h3><%= @wash_dry_iron_services.first.category %></h3>
             </div>
-            <div class="card-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <div class="card-body px-3">
+              <p>Laundromate will wash, dry and iron your clothes.</p>
 
               <div class="form-group">
                 <div class="mb-3 select optional line_item_service_id">
-                  <label class="form-label select optional" for="line_item_service_id">Select a service:</label>
+                  <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
                     <option value="5" data-service="Wash, Dry and Iron" data-price="25" data-weight="Up to 2 kg">Up to 2 kg - 25€</option>
                     <option value="6" data-service="Wash, Dry and Iron" data-price="40" data-weight="Up to 4 kg">Up to 4 kg - 40€</option>
@@ -81,12 +82,12 @@
             <div class="card-header">
               <h3 class="a-hover"><%= @iron_services.first.category %></h3>
             </div>
-            <div class="card-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <div class="card-body px-3">
+              <p>Laundromate will take care of your ironing needs!</p>
 
               <div class="form-group">
                 <div class="mb-3 select optional line_item_service_id">
-                  <label class="form-label select optional" for="line_item_service_id">Select a service:</label>
+                  <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
                     <option value="9" data-service="Iron" data-price="13" data-weight="Up to 2 kg">Up to 2 kg - 13€</option>
                     <option value="10" data-service="Iron" data-price="30" data-weight="Up to 4 kg">Up to 4 kg - 30€</option>
@@ -96,7 +97,7 @@
                 </div>
               </div>
             </div>
-            <div class="d-grid justify-content-md-end mt-5 me-4" >
+            <div class="d-grid justify-content-md-end mt-5 me-4 " >
               <%= f.button :submit, "Add to cart",
                   class: "btn btn-primary",
                   data: { bs_toggle: 'offcanvas',
@@ -112,5 +113,6 @@
     </div>
     <%# Main container end-div %>
     </div>
+    <div class="text-white"><h1>More exciting services coming soon!</h1></div>
   </div>
 </div>
