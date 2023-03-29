@@ -1,12 +1,7 @@
 <div id="message-<%= message.id %>">
   <small>
-    <% if message.user.nickname.capitalize == "Admin" %>
-    <strong><span style="color: #01a0ff"><%= message.user.nickname.capitalize %></span></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  <% else %>
     <strong><%= message.user.nickname.capitalize %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  <% end %>
   </small>
   <p><%= message.content %></p>
 </div>
