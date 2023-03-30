@@ -113,10 +113,10 @@
 
     <div class="row d-flex align-items-center">
       <div class="col-6 reviews-col reviews-title p-1">
-        <h1>Leave laundry day up to us!</h1>
-        ><br>
-        <div class="card reviews-content container-fluid rounded p-3">
-        <h4>Read what our customers have to say!</h4><hr>
+        <h1>Leave laundry day up to us!<br>We thrive to offer high quality services for all!</h1>
+        <br>
+        <div class="card reviews-content container-fluid rounded-4 p-3">
+        <h4>See what do our customers have to say!</h4><hr>
 
 
             <% @reviews.each do |review| %>
@@ -124,7 +124,7 @@
                 <div class="review">
                   <%= review.user.nickname.capitalize %> ⎜
                   <%= review.rating %>/5 <i class="fa-solid fa-star fa-beat fa-lg" style="color: #ffea00;"></i> -
-                  "<%= review.comment %>"<hr>
+                  "<%= review.comment %>"
                 </div>
               </div>
             <% end %>
