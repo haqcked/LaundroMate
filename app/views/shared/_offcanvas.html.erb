@@ -1,53 +1,47 @@
 <div class="offcanvas offcanvas-end m-3 rounded-4" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">My cart</h5>
+  <div class="offcanvas-header pb-0">
+    <%# <h5 class="offcanvas-title fs-1" id="offcanvasExampleLabel"><i class="fa-solid fa-cart-shopping"></i></h5> %>
+      <div class="d-flex justify-content-start align-items-center">
+        <p class="fs-2 m-0 ps-1"><i class="fa-solid fa-cart-shopping"></i></p>
+        <h4 class="mb-0 ps-2">Services added:</h4>
+      </div>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">
+  <div class="offcanvas-body pt-0">
 
-    <div class="container p-2">
-        <h2>Cart show</h2>
+    <div class="container p-2 pt-0">
+
+        <hr>
         <div id="modal">
           <% @cart.line_items.each do |line_item| %>
             <div class="card-order card p-4 mb-3">
               <p>Service: <strong><%= line_item.service.category %></strong></p>
               <p>Weight: <strong><%= line_item.service.name %></strong></p>
-              <p>Price: <strong>$<%= line_item.service.price %></strong></p>
-              <%= button_to "Remove item", line_item_path(line_item), method: :delete, class: "btn btn-danger" %>
+              <div class="d-flex justify-content-between price card-order">
+                <p>Price: <strong><%= line_item.service.price %>€</strong></p>
+                <%= button_to "x", line_item_path(line_item), method: :delete, class: "btn btn-outline-danger" %>
+              </div>
             </div>
           <% end %>
         </div>
-        <%= link_to "Add another service", services_path, class: "btn btn-primary" %>
-
-        <%= link_to "Empty cart", carts_destroy_path(@current_cart), class: "btn btn-secondary", method: :delete, data: {confirm: "Are you sure?"} %>
-        <hr>
-        <%= link_to carts_destroy_path(@current_cart) do %>
-          <button class="d-btn">
-            <p class="paragraph"> Empty Cart </p>
-            <span class="icon-wrapper">
-              <svg class="icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 7V18C6 19.1046 6.89543 20 8 20H16C17.1046 20 18 19.1046 18 18V7M6 7H5M6 7H8M18 7H19M18 7H16M10 11V16M14 11V16M8 7V5C8 3.89543 8.89543 3 10 3H14C15.1046 3 16 3.89543 16 5V7M8 7H16" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </span>
-          </button>
-          <% end %>
-
+        <div class="d-flex justify-content-around">
+        <%= link_to "＋ Service", services_path, class: "btn btn-outline-success" %>
+        <%= link_to "Empty cart", carts_destroy_path(@current_cart), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+        </div>
         <hr>
         <%= turbo_frame_tag @cart do %>
-          <h3 id="subtotal">Sub total: <%= number_to_currency(@cart.sub_total) %></h3><br>
+          <h3 id="subtotal">Subtotal: <%= @cart.sub_total %>.00€</h3><br>
         <% end %>
 
           <%# date picker %>
-
           <div class="card p-3 rounded-4">
-            <div class="text-center">
-              <h3>Pick your most convenient dates</h3>
-            </div>
-          <%# <div class="card-order card p-3"> %>
+            <h4 class="text-center pb-2">Pick your most convenient dates</h4>
             <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
               <%= f.input :pickup_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
               <%= f.input :delivery_date, as: :string, input_html: { data: { flatpickr_target: "endTime", action: "click->flatpickr#setend" } } %>
-              <%= f.submit 'Booking Summary', class: "btn btn-primary text-white" %>
+              <div class="d-flex justify-content-center py-3">
+                <%= f.submit 'Confirm Dates', class: "btn btn-success text-white" %>
+              </div>
             <% end %>
           </div>
           <%# === %>
@@ -56,7 +50,6 @@
   </div>
 </div>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" >
-  See my cart
-  <i class="fa-solid fa-cart-shopping"></i>
+<button class="btn btn-primary text-white fs-4 px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" >
+  See my <i class="fa-solid fa-cart-shopping"></i>
 </button>

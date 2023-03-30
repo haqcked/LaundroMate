@@ -38,11 +38,19 @@
 }
 
 .banner-booking-index {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  // justify-content: space-around;
+  // align-items: center;
   background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), image-url("mom-daughter-laundry.jpeg");
+  background-size: contain;
+  background-position: center;
+}
+
+.banner-booking-summary {
+  min-height: 100vh;
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680193012/Untitled_design_10_r2mwu6.png');
   background-size: cover;
   background-position: center;
 }
