@@ -19,7 +19,7 @@
             <div class="card-body px-3">
               <p>Laundromate will wash, dry and fold your clothes.</p>
               <div class="form-group">
-                <div class="mb-3 select optional line_item_service_id">
+                <div class="mb-3 select optional line_item_service_id text-center">
                   <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
                     <% @wash_dry_fold_services.each_with_index do | service, index | %>
@@ -52,7 +52,7 @@
               <p>Laundromate will wash, dry and iron your clothes.</p>
 
               <div class="form-group">
-                <div class="mb-3 select optional line_item_service_id">
+                <div class="mb-3 select optional line_item_service_id text-center">
                   <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
                     <% @wash_dry_iron_services.each_with_index do | service, index | %>
@@ -85,7 +85,7 @@
 
 
               <div class="form-group">
-                <div class="mb-3 select optional line_item_service_id">
+                <div class="mb-3 select optional line_item_service_id text-center">
                   <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
                     <% @iron_services.each_with_index do | service, index | %>
@@ -111,7 +111,7 @@
         </div>
         <div class="text-center text-white pt-4">
           <h4>🫧 More exciting services coming soon! 🫧</h4>
-          <h5>For the mean time, enjoy our <strong class="text-primary">free delivery promo</strong> for bookings of <strong class="text-danger"> "Up to 4kg" or more!!!</strong></h5>
+          <h5>In the meantime, enjoy our <strong class="text-primary">free delivery promo</strong> for bookings of <strong class="text-danger"> "Up to 4kg" or more!!!</strong></h5>
         </div>
       </div>
       <%# OFFCANVAS 'see my cart' button %>

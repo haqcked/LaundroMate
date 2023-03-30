@@ -30,7 +30,7 @@
         </div>
         <hr>
         <%= turbo_frame_tag @cart do %>
-          <h3 id="subtotal">Subtotal: <%= @cart.sub_total %>.00€</h3><br>
+          <h3 class="text-center" id="subtotal">Subtotal: <%= @cart.sub_total %>€</h3><br>
         <% end %>
 
           <%# date picker %>

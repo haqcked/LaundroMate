@@ -11,21 +11,26 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Home", root_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Services", services_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "My Cart", carts_show_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Chat", chatroom_path, class: "nav-link" %>
-            </li>
+            <% unless params[:action] == "home" %>
+              <li class="nav-item active navnav">
+                <%= link_to "Home", root_path, class: "nav-link" %>
+              </li>
+            <% end %>
+            <% unless controller_name == "services" && action_name == "index" %>
+              <li class="nav-item navnav">
+                <%= link_to "Services", services_path, class: "nav-link" %>
+              </li>
+            <% end %>
+            <% unless controller_name == "bookings" && action_name == "index" %>
+              <li class="nav-item navnav">
+                <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
+              </li>
+            <% end %>
+            <% unless controller_name == "chatrooms" && action_name == "show" %>
+              <li class="nav-item navnav">
+                <%= link_to "Chat", chatroom_path, class: "nav-link" %>
+              </li>
+            <% end %>
 
             <li class="nav-item dropdown ps-2">
               <% if @user&.photo&.key.present? %>
