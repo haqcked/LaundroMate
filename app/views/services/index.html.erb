@@ -1,6 +1,6 @@
 <div class="banner-services">
   <div class="container p-4 mb-2">
-    <h2 class="text-white text-center">Our Services</h2>
+    <h2 class="text-white text-center my-4">Our Services</h2>
     <%# <div class="d-flex justify-content-center">
       <%= render partial: 'shared/offcanvas' %>
     <%# </div> %>
@@ -31,7 +31,7 @@
 
                 <div class="d-grid justify-content-md-end mt-5 me-4" >
                   <%= f.button :submit, "Add to cart",
-                      class: "btn btn-primary",
+                      class: "btn btn-primary text-white",
                       data: { bs_toggle: 'offcanvas',
                               bs_target: '#offcanvasExample',
                               bs_controls: 'offcanvasExample',
@@ -64,7 +64,7 @@
             </div>
             <div class="d-grid justify-content-md-end mt-5 me-4" >
               <%= f.button :submit, "Add to cart",
-                  class: "btn btn-primary",
+                  class: "btn btn-primary text-white",
                   data: { bs_toggle: 'offcanvas',
                           bs_target: '#offcanvasExample',
                           bs_controls: 'offcanvasExample',
@@ -97,7 +97,7 @@
               </div>
                   <div class="d-grid justify-content-md-end mt-5 me-4 " >
                     <%= f.button :submit, "Add to cart",
-                        class: "btn btn-primary",
+                        class: "btn btn-primary text-white",
                         data: { bs_toggle: 'offcanvas',
                                 bs_target: '#offcanvasExample',
                                 bs_controls: 'offcanvasExample',
@@ -109,13 +109,16 @@
             <%# CARD SET container end-div %>
           </div>
         </div>
-               <%# OFFCANVAS 'see my cart' button %>
-        <div class="d-flex justify-content-center">
-          <%= render partial: 'shared/offcanvas' %>
+        <div class="text-center text-white pt-4">
+          <h4>🫧 More exciting services coming soon! 🫧</h4>
+          <h5>For the mean time, enjoy our <strong class="text-primary">free delivery promo</strong> for bookings of <strong class="text-danger"> "Up to 4kg" or more!!!</strong></h5>
         </div>
-        <%# end of offcanvas %>
-          <div class="text-white d-flex justify-content-center py-5"><h3>More exciting services coming soon!</h3></div>
       </div>
+      <%# OFFCANVAS 'see my cart' button %>
+      <div class="d-flex justify-content-center mt-5">
+        <%= render partial: 'shared/offcanvas' %>
+      </div>
+      <%# end of offcanvas %>
     </div>
     <%# Main container end-div %>
   </div>
