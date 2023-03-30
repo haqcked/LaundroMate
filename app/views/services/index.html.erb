@@ -31,7 +31,7 @@
 
                 <div class="d-grid justify-content-md-end mt-5 me-4" >
                   <%= f.button :submit, "Add to cart",
-                      class: "btn btn-primary",
+                      class: "btn btn-primary text-white",
                       data: { bs_toggle: 'offcanvas',
                               bs_target: '#offcanvasExample',
                               bs_controls: 'offcanvasExample',
@@ -64,7 +64,7 @@
             </div>
             <div class="d-grid justify-content-md-end mt-5 me-4" >
               <%= f.button :submit, "Add to cart",
-                  class: "btn btn-primary",
+                  class: "btn btn-primary text-white",
                   data: { bs_toggle: 'offcanvas',
                           bs_target: '#offcanvasExample',
                           bs_controls: 'offcanvasExample',
@@ -97,7 +97,7 @@
               </div>
                   <div class="d-grid justify-content-md-end mt-5 me-4 " >
                     <%= f.button :submit, "Add to cart",
-                        class: "btn btn-primary",
+                        class: "btn btn-primary text-white",
                         data: { bs_toggle: 'offcanvas',
                                 bs_target: '#offcanvasExample',
                                 bs_controls: 'offcanvasExample',
@@ -110,11 +110,11 @@
           </div>
         </div>
                <%# OFFCANVAS 'see my cart' button %>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center text-white">
           <%= render partial: 'shared/offcanvas' %>
         </div>
         <%# end of offcanvas %>
-          <div class="text-white d-flex justify-content-center py-5"><h3>More exciting services coming soon!</h3></div>
+          <div class="coming-soon text-white d-flex justify-content-center py-5"><h3>More exciting services coming soon!</h3></div>
       </div>
     </div>
     <%# Main container end-div %>
