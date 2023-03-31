@@ -87,3 +87,27 @@
   }
 
 }
+
+@media only screen and (max-width: 768px) {
+  .banner {
+    height: 80vh;
+  }
+
+  .banner-content {
+    width: 60%;
+  }
+
+  .banner-content h1 {
+    font-size: 30px;
+  }
+
+  .banner-content p {
+    font-size: 22px;
+  }
+
+  .c-button {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+
+}
