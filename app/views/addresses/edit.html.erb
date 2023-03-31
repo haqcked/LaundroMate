@@ -1,25 +1,28 @@
 <div class="container">
-  <div class="col-4 mx-auto">
+  <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 mx-auto">
+    <div class="card rounded-4 p-4 my-5">
 
-    <h2>Edit Address</h2>
+    <h2 class="text-center">Edit Address</h2>
+    <hr>
 
     <%= simple_form_for(current_user, as: :user, url: addresses_edit_path(booking_id: @booking.id), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
+      <div class="form-inputs p-3">
 
         <%= f.input :address,
                     input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                     wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
       </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Update", class: "btn btn-primary" %>
+      <div class="form-actions text-center mt-4">
+        <%= f.button :submit, "Update", class: "btn btn-outline-primary text-center col-4" %>
       </div>
     <% end %>
 
 
 
     <%= link_to "Back", :back %>
+    </div>
   </div>
 </div>
