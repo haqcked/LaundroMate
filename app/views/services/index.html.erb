@@ -1,6 +1,6 @@
 <div class="banner-services">
   <div class="container p-4 mb-2">
-    <h2 class="text-white text-center">Our Services</h2>
+    <h2 class="text-white text-center my-4">Our Services</h2>
     <%# <div class="d-flex justify-content-center">
       <%= render partial: 'shared/offcanvas' %>
     <%# </div> %>
@@ -19,7 +19,7 @@
             <div class="card-body px-3">
               <p>Laundromate will wash, dry and fold your clothes.</p>
               <div class="form-group">
-                <div class="mb-3 select optional line_item_service_id">
+                <div class="mb-3 select optional line_item_service_id text-center">
                   <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
                     <% @wash_dry_fold_services.each_with_index do | service, index | %>
@@ -31,7 +31,7 @@
 
                 <div class="d-grid justify-content-md-end mt-5 me-4" >
                   <%= f.button :submit, "Add to cart",
-                      class: "btn btn-primary",
+                      class: "btn btn-primary text-white",
                       data: { bs_toggle: 'offcanvas',
                               bs_target: '#offcanvasExample',
                               bs_controls: 'offcanvasExample',
@@ -52,7 +52,7 @@
               <p>Laundromate will wash, dry and iron your clothes.</p>
 
               <div class="form-group">
-                <div class="mb-3 select optional line_item_service_id">
+                <div class="mb-3 select optional line_item_service_id text-center">
                   <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
                     <% @wash_dry_iron_services.each_with_index do | service, index | %>
@@ -64,7 +64,7 @@
             </div>
             <div class="d-grid justify-content-md-end mt-5 me-4" >
               <%= f.button :submit, "Add to cart",
-                  class: "btn btn-primary",
+                  class: "btn btn-primary text-white",
                   data: { bs_toggle: 'offcanvas',
                           bs_target: '#offcanvasExample',
                           bs_controls: 'offcanvasExample',
@@ -85,7 +85,7 @@
 
 
               <div class="form-group">
-                <div class="mb-3 select optional line_item_service_id">
+                <div class="mb-3 select optional line_item_service_id text-center">
                   <label class="form-label select optional pt-4" for="line_item_service_id"><strong>Select weight:</strong></label>
                   <select class="form-select select optional rounded-5" name="line_item[service_id]" id="line_item_service_id"><option value="" label=" "></option>
                     <% @iron_services.each_with_index do | service, index | %>
@@ -97,7 +97,7 @@
               </div>
                   <div class="d-grid justify-content-md-end mt-5 me-4 " >
                     <%= f.button :submit, "Add to cart",
-                        class: "btn btn-primary",
+                        class: "btn btn-primary text-white",
                         data: { bs_toggle: 'offcanvas',
                                 bs_target: '#offcanvasExample',
                                 bs_controls: 'offcanvasExample',
@@ -109,13 +109,16 @@
             <%# CARD SET container end-div %>
           </div>
         </div>
-               <%# OFFCANVAS 'see my cart' button %>
-        <div class="d-flex justify-content-center">
-          <%= render partial: 'shared/offcanvas' %>
+        <div class="text-center text-white pt-4">
+          <h4>🫧 More exciting services coming soon! 🫧</h4>
+          <h5>In the meantime, <strong class="text-danger">freshen up for Spring 🌷</strong> - Enjoy <strong class="text-primary"> Free Delivery PROMO 🚚</strong> on all laundry services until the end of June!</h5>
         </div>
-        <%# end of offcanvas %>
-          <div class="text-white d-flex justify-content-center py-5"><h3>More exciting services coming soon!</h3></div>
       </div>
+      <%# OFFCANVAS 'see my cart' button %>
+      <div class="d-flex justify-content-center mt-5">
+        <%= render partial: 'shared/offcanvas' %>
+      </div>
+      <%# end of offcanvas %>
     </div>
     <%# Main container end-div %>
   </div>

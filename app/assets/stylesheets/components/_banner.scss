@@ -18,7 +18,7 @@
     opacity: .8;
     font-size: 25px;
     font-weight: lighter;
-    padding-top: 30px;
+    // padding-top: 30px;
     margin-bottom: 20px;
   }
   .btn {
@@ -32,17 +32,32 @@
 .banner-services {
   min-height: 100vh;
   display: flex;
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1679676033/happy_dogo.png');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680273859/happy_dogo_4d4cb2.png');
   background-size: cover;
   background-position: center;
 }
 
 .banner-booking-index {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), image-url("mom-daughter-laundry.jpeg");
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680200042/Untitled_design_12_zoe7tk.png');
+  background-size: cover;
+  background-position: center;
+
+}
+
+.banner-booking-summary {
+  min-height: 100vh;
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680193012/Untitled_design_10_r2mwu6.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-chatroom {
+  min-height: 100vh;
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680274220/chatroom%20dasd2424.png');
   background-size: cover;
   background-position: center;
 }

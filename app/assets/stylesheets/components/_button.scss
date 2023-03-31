@@ -10,148 +10,64 @@
   vertical-align: middle;
   position: relative;
   z-index: 1;
- }
-
- .c-button--gooey {
-  color: #00a1ff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border: 4px solid #00a1ff;
-  border-radius: 15px;
-  position: relative;
-  transition: all 700ms ease;
- }
-
- .c-button--gooey .c-button__blobs {
-  height: 100%;
-  filter: url(#goo);
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: -3px;
-  right: -1px;
-  z-index: -1;
- }
-
- .c-button--gooey .c-button__blobs div {
-  background-color: #00a1ff;
-  width: 34%;
-  height: 100%;
-  border-radius: 100%;
-  position: absolute;
-  transform: scale(1.4) translateY(125%) translateZ(0);
-  transition: all 700ms ease;
- }
-
- .c-button--gooey .c-button__blobs div:nth-child(1) {
-  left: -5%;
- }
-
- .c-button--gooey .c-button__blobs div:nth-child(2) {
-  left: 30%;
-  transition-delay: 60ms;
- }
-
- .c-button--gooey .c-button__blobs div:nth-child(3) {
-  left: 66%;
-  transition-delay: 25ms;
- }
-
- .c-button--gooey:hover {
-  color: #fff;
- }
-
- .c-button--gooey:hover .c-button__blobs div {
-  transform: scale(1.4) translateY(0) translateZ(0);
- }
-
-
-//  d-btn in CART SHOW to empty the cart
-
-.d-btn {
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border: none;
-  position: relative;
-  border-radius: 10px;
-  -webkit-box-shadow: 1px 1px 5px .2px #00000035;
-  box-shadow: 1px 1px 5px .2px #00000035;
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
-  transition-delay: .2s;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: space-between;
 }
 
-.d-btn:hover {
-  width: 150px;
-  transition-delay: .2s;
+.c-button--gooey {
+color: #00a1ff;
+text-transform: uppercase;
+letter-spacing: 2px;
+border: 4px solid #00a1ff;
+border-radius: 15px;
+position: relative;
+transition: all 700ms ease;
 }
 
-.d-btn:hover > .paragraph {
-  visibility: visible;
-  opacity: 1;
-  -webkit-transition-delay: .4s;
-  transition-delay: .4s;
+.c-button--gooey .c-button__blobs {
+height: 100%;
+filter: url(#goo);
+overflow: hidden;
+position: absolute;
+top: 0;
+left: 0;
+bottom: -3px;
+right: -1px;
+z-index: -1;
 }
 
-.d-btn:hover > .icon-wrapper .icon {
-  transform: scale(1.1);
+.c-button--gooey .c-button__blobs div {
+background-color: #00a1ff;
+width: 34%;
+height: 100%;
+border-radius: 100%;
+position: absolute;
+transform: scale(1.4) translateY(125%) translateZ(0);
+transition: all 700ms ease;
 }
 
-.bnt:hover > .icon-wrapper .icon path {
-  stroke: black;
+.c-button--gooey .c-button__blobs div:nth-child(1) {
+left: -5%;
 }
 
-.paragraph {
-  color: black;
-  visibility: hidden;
-  opacity: 0;
-  font-size: 14px;
-  margin-right: 20px;
-  padding-left: 20px;
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
-  font-weight: normal;
-  // text-transform: uppercase;
-
+.c-button--gooey .c-button__blobs div:nth-child(2) {
+left: 30%;
+transition-delay: 60ms;
 }
 
-.icon-wrapper {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.c-button--gooey .c-button__blobs div:nth-child(3) {
+left: 66%;
+transition-delay: 25ms;
 }
 
-.icon {
-  transform: scale(.9);
-  transition: .2s linear;
+.c-button--gooey:hover {
+color: #ffffff;
 }
 
-.icon path {
-  stroke: #000;
-  stroke-width: 2px;
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
+.c-button--gooey:hover .c-button__blobs div {
+transform: scale(1.4) translateY(0) translateZ(0);
 }
-
 
 // .btn index
 
 .btn {
-  border-radius: 8px;
+border-radius: 8px;
 }
