@@ -49,18 +49,33 @@
 
 
 .wash-dry-fold {
-  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dzh4zrfev/image/upload/v1679657723/basket2_oltpi2.png);
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(  https://res.cloudinary.com/dzh4zrfev/image/upload/v1679657723/basket2_oltpi2.png);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  background-size: 100%;
 }
 
 .wash-dry-iron {
   background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dzh4zrfev/image/upload/v1679657723/basket3_frgiuy.png);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  background-size: 100%;
 }
+
+// .iron {
+//   background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dzh4zrfev/image/upload/v1679657724/iron_jcyq5s.png);
+//   background-size: cover;
+// }
+
 
 .iron {
   background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://res.cloudinary.com/dzh4zrfev/image/upload/v1679657724/iron_jcyq5s.png);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  background-size: 100%;
 }
 
 // CARD OFFCANVAS ORDERS
