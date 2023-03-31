@@ -113,20 +113,19 @@ img {
   text-align: center;
   font-weight: 900;
   opacity: 0.15;
-  font-size: 170px;
+  font-size: 150px;
   top: 10%;
   right: 15%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .hr-home {
     margin-top: 85px;
     margin-bottom: 65px;
   }
 
   .about .fa-solid {
-    color: $success;
-    font-size: 50px;
+    font-size: 70px;
     padding-top: 30px;
   }
 
@@ -134,9 +133,14 @@ img {
     font-size: 18px;
   }
 
+  .about-row {
+    width: 90%;
+    margin: auto;
+  }
+
   .steps-container {
-    height: 680px;
-    margin-top: 10px;
+    height: 550px;
+    margin-top: 0px;
   }
 
   .steps-title h1{
@@ -145,26 +149,22 @@ img {
 
 
   .steps p {
-    line-height: 25px;
-    padding: 0 10px;
-    // font-weight: bold;
-    padding-top: 10px;
+    line-height: 22px;
+    padding-right: 10px;
+    padding-left: 10px;
     font-size: 18px;
+    // margin: auto;
   }
 
   .steps-6 p {
     border-right: 5px solid $danger;
-    line-height: 25px;
-    padding: 0 10px;
-    // font-weight: bold;
-    padding-top: 10px;
+    line-height: 22px;
     font-size: 18px;
-
   }
 
   .num-icon{
-    font-weight: 700;
-    font-size: 90px;
+    font-weight: 750;
+    font-size: 100px;
   }
 
   .reviews-col{
@@ -188,4 +188,60 @@ img {
     margin-top: 35px;
     margin-bottom: -60px;
   }
+}
+
+
+@media only screen and (max-width: 480px) {
+  .hr-home {
+    margin-top: 85px;
+    margin-bottom: 65px;
+  }
+
+  .about .fa-solid {
+    font-size: 50px;
+    padding-top: 30px;
+  }
+
+  .about p {
+    font-size: 18px;
+  }
+
+  .about-row {
+    width: 100%;
+    margin: auto;
+  }
+
+  .steps-container {
+    height: 680px;
+    margin-top: 10px;
+  }
+
+  .steps-title h1{
+  font-size: 40px;
+  }
+
+
+  .steps p {
+    line-height: 25px;
+    padding: 0 10px;
+    // font-weight: bold;
+    padding-top: 10px;
+    font-size: 18px;
+  }
+
+  .steps-6 p {
+    line-height: 25px;
+    padding: 0 10px;
+    padding-top: 10px;
+    font-size: 18px;
+
+  }
+
+  .num-icon{
+    font-weight: 700;
+    font-size: 90px;
+  }
+
+
+
 }
