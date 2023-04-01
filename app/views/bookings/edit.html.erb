@@ -1,8 +1,9 @@
-<div class="container">
+<div class="banner-booking-edit-date">
+  <div class="container p-4">
   <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 mx-auto">
     <div class="card rounded-4 p-4 my-5">
 
-      <h2 class="text-center">Edit Profile</h2>
+      <h2 class="text-center">Edit Dates</h2>
       <hr>
       <div class="form-input p-3">
         <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
@@ -17,5 +18,6 @@
         <% end %>
       </div>
     </div>
+  </div>
   </div>
 </div>

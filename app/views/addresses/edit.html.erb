@@ -1,8 +1,9 @@
-<div class="container">
+<div class="banner-booking-edit-address">
+  <div class="container p-4">
   <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 mx-auto">
     <div class="card rounded-4 p-4 my-5">
 
-    <h2 class="text-center">Edit Address</h2>
+    <h2 class="text-center">Change Pickup Address</h2>
     <hr>
 
     <%= simple_form_for(current_user, as: :user, url: addresses_edit_path(booking_id: @booking.id), html: { method: :put }) do |f| %>
@@ -24,5 +25,6 @@
 
     <%= link_to "Back", :back %>
     </div>
+  </div>
   </div>
 </div>
