@@ -105,39 +105,37 @@
 
   <div class="hr-home">
   </div>
+        <h1 class="text-center">Leave laundry day up to us!<br>We thrive to offer high quality services for all!</h1>
 
 
 
-  <div class="reviews container-fluid p-5">
+  <div class="reviews container-fluid p-4">
 
     <div class="row d-flex align-items-center">
-      <div class="col-6 reviews-col reviews-title p-1">
-        <h1>Leave laundry day up to us!<br>We thrive to offer high quality services for all!</h1>
+      <div class="col-6 reviews-col reviews-title p-5">
         <br>
-        <div class="card reviews-content container-fluid rounded-4 p-3">
+        <div class="card reviews-content container-fluid rounded-4 p-4">
         <h4>See what do our customers have to say!</h4><hr>
-
-
-            <% @reviews.each do |review| %>
-              <div class="row">
-                <div class="review">
-                  <%= review.user.nickname.capitalize %> ⎜
-                  <%= review.rating %>/5 <i class="fa-solid fa-star fa-beat fa-lg" style="color: #ffea00;"></i> -
-                  "<%= review.comment %>"
-                </div>
+          <% @reviews.each do |review| %>
+            <div class="row">
+              <div class="review">
+                <%= review.user.nickname.capitalize %> ⎜
+                <%= review.rating %>/5 <i class="fa-solid fa-star fa-beat fa-lg" style="color: #ffea00;"></i> -
+                "<%= review.comment %>"
               </div>
-            <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
 
-      <div class="col-6 reviews-col p-1">
+      <div class="col-6 reviews-col p-2">
       <img src="https://www.rd.com/wp-content/uploads/2021/09/GettyImages-1181334518-MLedit.jpg?resize=1536,1024" alt="Laundry Room">
       </div>
     </div>
   </div>
 
-   <div class="hr-home">
-  </div>
+  <div class="hr-home">
+</div>
 
   <%# <div class="container text-center pb-5 mb-5">
     <div class="guarantee">

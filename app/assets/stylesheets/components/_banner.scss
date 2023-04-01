@@ -62,7 +62,53 @@
   background-position: center;
 }
 
+.banner-login {
+  min-height: 100vh;
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680323642/Untitled_design_19_nqcm1e.png');
+  background-size: cover;
+  background-position: center;
+}
 
+.banner-signup {
+  min-height: 100vh;
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680325780/Untitled_design_24_nbxlov.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-edit-profile {
+  min-height: 100vh;
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680323642/Untitled_design_19_nqcm1e.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-booking-edit-date {
+  min-height: 70vh;
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680324635/Untitled_design_21_tg8wfw.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-booking-edit-address {
+  min-height: 70vh;
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680325376/Untitled_design_22_qyssqa.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-profile {
+  min-height: 70vh;
+  display: flex;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dzh4zrfev/image/upload/v1680327273/Untitled_design_27_lje4ud.png');
+  background-size: cover;
+  background-position: center;
+}
 
 @media only screen and (max-width: 600px) {
   .banner {
