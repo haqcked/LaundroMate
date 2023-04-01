@@ -44,26 +44,25 @@
   </div>
 
   </div>
-  <div class="about container-fluid px-5">
+  <div class="about container-fluid container-md px-5">
     <%# <h1 class="text-center pt-5">Our promise to you</h1> %>
-    <div class="row align-items-start">
-      <div class="col text-center pt-3">
+    <div class="row about-row align-items-start">
+      <div class="col about-col-1 text-center pt-3">
         <i class="fa-solid fa-jug-detergent fa-5x fa-fade pb-5"></i>
         <p>
         We use eco-friendly gentle detergents without harmful chemicals formulated to keep your clothes fresh and clean so that your skin can stay happy and healthy.
         </p>
       </div>
-      <div class="col text-center pt-3">
+      <div class="col about-col-2 text-center pt-3">
         <i class="fa-solid fa-calendar-days fa-5x fa-fade pb-5"></i>
         <p>
         Choose the dates that work for you. Our LaundroMate employees work hard to ensure your laundry is collected and delivered back to you in your selected time.
         </p>
       </div>
-      <div class="col text-center pt-3">
+      <div class="col about-col-3 text-center pt-3">
         <i class="fa-solid fa-shirt fa-5x fa-fade pb-5"></i>
-        <p>
+        <p class="">
         Rest assured that your clothes are in good hands. Each LaundroMate employee is well-trained and knowledgeable about handle every type of fabric.
-
         </p>
       </div>
     </div>
@@ -106,39 +105,37 @@
 
   <div class="hr-home">
   </div>
+        <h1 class="text-center">Leave laundry day up to us!<br>We thrive to offer high quality services for all!</h1>
 
 
 
-  <div class="reviews container-fluid p-5">
+  <div class="reviews container-fluid p-4">
 
     <div class="row d-flex align-items-center">
-      <div class="col-6 reviews-col reviews-title p-1">
-        <h1>Leave laundry day up to us!<br>We thrive to offer high quality services for all!</h1>
+      <div class="col-6 reviews-col reviews-title p-5">
         <br>
-        <div class="card reviews-content container-fluid rounded-4 p-3">
+        <div class="card reviews-content container-fluid rounded-4 p-4">
         <h4>See what our customers have to say!</h4><hr>
-
-
-            <% @reviews.each do |review| %>
-              <div class="row">
-                <div class="review">
-                  <%= review.user.nickname.capitalize %> ⎜
-                  <%= review.rating %>/5 <i class="fa-solid fa-star fa-beat fa-lg" style="color: #ffea00;"></i> -
-                  "<%= review.comment %>"<hr>
-                </div>
+          <% @reviews.each do |review| %>
+            <div class="row">
+              <div class="review">
+                <%= review.user.nickname.capitalize %> ⎜
+                <%= review.rating %>/5 <i class="fa-solid fa-star fa-beat fa-lg" style="color: #ffea00;"></i> -
+                "<%= review.comment %>"<hr>
               </div>
-            <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
 
-      <div class="col-6 reviews-col p-1">
+      <div class="col-6 reviews-col p-2">
       <img src="https://www.rd.com/wp-content/uploads/2021/09/GettyImages-1181334518-MLedit.jpg?resize=1536,1024" alt="Laundry Room">
       </div>
     </div>
   </div>
 
-   <div class="hr-home">
-  </div>
+  <div class="hr-home">
+</div>
 
   <%# <div class="container text-center pb-5 mb-5">
     <div class="guarantee">
